@@ -9,8 +9,7 @@ namespace amazeing
         {
             Controller controller = new Controller();
             controller.importMaze();
-            controller.displayMazeFileName();
-            controller.displayMazeFilePath();
+
 
             Console.ReadKey();
         }

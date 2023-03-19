@@ -35,5 +35,25 @@ namespace amazeing
         }
 
         // Methods
+        public void build()
+        {
+            string[] lines = File.ReadAllLines(this.filePath);
+            this.depth = lines.Length;
+            this.width = lines[0].Length - this.depth + 1;
+
+            // File Validation
+            if (this.width != this.depth)
+            {
+                throw new Exception("Maze must be a rectangle");
+            }
+
+            for (int i = 1; i < this.depth; i++)
+            {
+                if (this.width != lines[i].Length - this.depth + 1)
+                {
+                    throw new Exception("Maze must be a rectangle");
+                }
+            }
+        }
     }
 }

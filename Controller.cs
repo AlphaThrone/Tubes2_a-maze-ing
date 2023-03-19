@@ -32,12 +32,15 @@ namespace amazeing
                     {
                         throw new Exception("We cannot find your file :(\n");
                     }
+
                     this.maze.setMazeFile(inputFileName);
+                    this.maze.build();
+
                     inputInvalid = false;
                 }
                 catch (Exception err)
                 {
-                    Console.WriteLine(err);
+                    Console.WriteLine(err.Message);
                 }
             }
         }
