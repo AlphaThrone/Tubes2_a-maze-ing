@@ -2,26 +2,28 @@ namespace amazeing
 {
     class Maze
     {
-        // Attributes
+        // === ATTRIBUTES ======================================================================
         private string fileName;
         private string filePath;
         private int width;
         private int depth;
         private Node? startingNode;
         private Node?[,]? matrix;
+        private int nNode;
         private int nTreasure;
 
-        // Constructor Destructor
+        // === CONSTRUCTOR =====================================================================
         public Maze()
         {
             this.fileName = "";
             this.filePath = "./test/";
             this.width = 0;
             this.depth = 0;
+            this.nNode = 0;
             this.nTreasure = 0;
         }
 
-        // Getter Setter
+        // === GETTER SETTER ===================================================================
         public void setMazeFile(string fileName)
         {
             this.fileName = fileName;
@@ -38,12 +40,32 @@ namespace amazeing
             return this.filePath;
         }
 
+        public int getMazeWidth()
+        {
+            return this.width;
+        }
+
+        public int getMazeDepth()
+        {
+            return this.depth;
+        }
+
         public int getNTreasure()
         {
             return this.nTreasure;
         }
 
-        // Methods
+        public Node? getStartingNode()
+        {
+            return this.startingNode;
+        }
+
+        public Node?[,]? getMatrix()
+        {
+            return this.matrix;
+        }
+
+        // === METHODS =========================================================================
         public void validate()
         {
             string[] lines = File.ReadAllLines(this.filePath);
@@ -71,7 +93,7 @@ namespace amazeing
             this.depth = lines.Length;
             this.width = lines[0].Length - this.depth + 1;
 
-            // Create all node
+            // 1. Create all nodes
             this.matrix = new Node[this.depth, this.width];
             int x = 0;
             int y = 0;
@@ -87,6 +109,7 @@ namespace amazeing
                         {
                             Node newNode = new Node(lines[i][j], x, y);
                             this.matrix[x, y] = newNode;
+                            this.nNode++;
 
                             if (lines[i][j] == 'K')
                             {
@@ -107,7 +130,7 @@ namespace amazeing
                 }
             }
 
-            // Link all nodes
+            // 2. Link all nodes
             for (int i = 0; i < this.depth; i++)
             {
                 for (int j = 0; j < this.width; j++)
@@ -151,7 +174,7 @@ namespace amazeing
             }
         }
 
-        // Display
+        // === DISPLAY =========================================================================
         public void displayMaze()
         {
             for (int i = 0; i < this.depth; i++)

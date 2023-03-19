@@ -1,7 +1,4 @@
-﻿using System;
-using amazeing;
-
-namespace amazeing
+﻿namespace amazeing
 {
     class Program
     {
@@ -9,6 +6,7 @@ namespace amazeing
         {
             Controller controller = new Controller();
             controller.importMaze();
+            controller.solve();
 
 
             Console.ReadKey();
