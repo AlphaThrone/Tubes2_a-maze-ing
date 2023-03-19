@@ -7,6 +7,7 @@ namespace amazeing
         private string filePath;
         private int width;
         private int depth;
+        private Node? startingNode;
 
         // Constructor Destructor
         public Maze()
@@ -35,13 +36,13 @@ namespace amazeing
         }
 
         // Methods
-        public void build()
+        public void validate()
         {
             string[] lines = File.ReadAllLines(this.filePath);
             this.depth = lines.Length;
             this.width = lines[0].Length - this.depth + 1;
 
-            // File Validation
+            // File Validation (Must be a rectangle)
             if (this.width != this.depth)
             {
                 throw new Exception("Maze must be a rectangle");
@@ -52,6 +53,84 @@ namespace amazeing
                 if (this.width != lines[i].Length - this.depth + 1)
                 {
                     throw new Exception("Maze must be a rectangle");
+                }
+            }
+        }
+
+        public void build()
+        {
+            string[] lines = File.ReadAllLines(this.filePath);
+            this.depth = lines.Length;
+            this.width = lines[0].Length - this.depth + 1;
+
+            // Create all node
+            Node?[,] matrix = new Node[this.depth, this.width];
+            int x = 0;
+            int y = 0;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                y = 0;
+                x = i;
+                for (int j = 0; j < lines[i].Length; j++)
+                {
+                    if (lines[i][j] != ' ' && lines[i][j] != 'X')
+                    {
+                        Node newNode = new Node(lines[i][j], x, y);
+                        matrix[x, y] = newNode;
+
+                        if (lines[i][j] == 'K')
+                        {
+                            this.startingNode = newNode;
+                        }
+                        y++;
+                    }
+                    else
+                    {
+                        matrix[x, y] = null;
+                    }
+                }
+            }
+
+            // Link all nodes
+            for (int i = 0; i < this.depth; i++)
+            {
+                for (int j = 0; j < this.width; j++)
+                {
+                    if (matrix[i, j] != null)
+                    {
+                        // Set left node
+                        if (j != 0)
+                        {
+                            if (matrix[i, j - 1] != null)
+                            {
+                                matrix[i, j].setLeftNode(matrix[i, j - 1]);
+                            }
+                        }
+                        // Set top node
+                        if (i != 0)
+                        {
+                            if (matrix[i - 1, j] != null)
+                            {
+                                matrix[i, j].setTopNode(matrix[i - 1, j]);
+                            }
+                        }
+                        // Set right node
+                        if (j != this.width - 1)
+                        {
+                            if (matrix[i, j + 1] != null)
+                            {
+                                matrix[i, j].setRightNode(matrix[i, j + 1]);
+                            }
+                        }
+                        // Set bottom node
+                        if (i != this.depth - 1)
+                        {
+                            if (matrix[i + 1, j] != null)
+                            {
+                                matrix[i, j].setBottomNode(matrix[i + 1, j]);
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -34,6 +34,7 @@ namespace amazeing
                     }
 
                     this.maze.setMazeFile(inputFileName);
+                    this.maze.validate();
                     this.maze.build();
 
                     inputInvalid = false;
