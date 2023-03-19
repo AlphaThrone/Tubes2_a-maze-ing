@@ -19,11 +19,7 @@ namespace amazeing
         {
             this.id = numOfNode;
 
-            if (symbol == 'X')
-            {
-                this.type = "Wall";
-            }
-            else if (symbol == 'R')
+            if (symbol == 'R')
             {
                 this.type = "Path";
             }
@@ -52,17 +48,38 @@ namespace amazeing
         {
             this.leftNode = leftNode;
         }
+        public Node getLeftNode()
+        {
+            return this.leftNode;
+        }
         public void setTopNode(Node topNode)
         {
             this.topNode = topNode;
+        }
+        public Node getTopeNode()
+        {
+            return this.topNode;
         }
         public void setRightNode(Node rightNode)
         {
             this.rightNode = rightNode;
         }
+        public Node getRighteNode()
+        {
+            return this.rightNode;
+        }
         public void setBottomNode(Node bottomNode)
         {
             this.bottomNode = bottomNode;
+        }
+        public Node getBottomNode()
+        {
+            return this.bottomNode;
+        }
+
+        public string getType()
+        {
+            return this.type;
         }
     }
 }

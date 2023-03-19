@@ -36,6 +36,8 @@ namespace amazeing
                     this.maze.setMazeFile(inputFileName);
                     this.maze.validate();
                     this.maze.build();
+                    this.maze.displayMaze();
+                    Console.WriteLine(this.maze.getNTreasure());
 
                     inputInvalid = false;
                 }

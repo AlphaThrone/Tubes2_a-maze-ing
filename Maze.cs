@@ -8,6 +8,8 @@ namespace amazeing
         private int width;
         private int depth;
         private Node? startingNode;
+        private Node?[,]? matrix;
+        private int nTreasure;
 
         // Constructor Destructor
         public Maze()
@@ -16,6 +18,7 @@ namespace amazeing
             this.filePath = "./test/";
             this.width = 0;
             this.depth = 0;
+            this.nTreasure = 0;
         }
 
         // Getter Setter
@@ -33,6 +36,11 @@ namespace amazeing
         public string getMazeFilePath()
         {
             return this.filePath;
+        }
+
+        public int getNTreasure()
+        {
+            return this.nTreasure;
         }
 
         // Methods
@@ -64,7 +72,7 @@ namespace amazeing
             this.width = lines[0].Length - this.depth + 1;
 
             // Create all node
-            Node?[,] matrix = new Node[this.depth, this.width];
+            this.matrix = new Node[this.depth, this.width];
             int x = 0;
             int y = 0;
             for (int i = 0; i < lines.Length; i++)
@@ -73,20 +81,28 @@ namespace amazeing
                 x = i;
                 for (int j = 0; j < lines[i].Length; j++)
                 {
-                    if (lines[i][j] != ' ' && lines[i][j] != 'X')
+                    if (lines[i][j] != ' ')
                     {
-                        Node newNode = new Node(lines[i][j], x, y);
-                        matrix[x, y] = newNode;
-
-                        if (lines[i][j] == 'K')
+                        if (lines[i][j] != 'X')
                         {
-                            this.startingNode = newNode;
+                            Node newNode = new Node(lines[i][j], x, y);
+                            this.matrix[x, y] = newNode;
+
+                            if (lines[i][j] == 'K')
+                            {
+                                this.startingNode = newNode;
+                            }
+
+                            if (lines[i][j] == 'T')
+                            {
+                                this.nTreasure++;
+                            }
+                        }
+                        else
+                        {
+                            matrix[x, y] = null;
                         }
                         y++;
-                    }
-                    else
-                    {
-                        matrix[x, y] = null;
                     }
                 }
             }
@@ -132,6 +148,35 @@ namespace amazeing
                         }
                     }
                 }
+            }
+        }
+
+        // Display
+        public void displayMaze()
+        {
+            for (int i = 0; i < this.depth; i++)
+            {
+                for (int j = 0; j < this.width; j++)
+                {
+                    if (this.matrix[i, j] == null)
+                    {
+                        Console.Write('X');
+                    }
+                    else if (this.matrix[i, j].getType() == "Path")
+                    {
+                        Console.Write('R');
+                    }
+                    else if (this.matrix[i, j].getType() == "Treasure")
+                    {
+                        Console.Write('T');
+                    }
+                    else if (this.matrix[i, j].getType() == "Krusty Krab")
+                    {
+                        Console.Write('K');
+                    }
+                    Console.Write(' ');
+                }
+                Console.WriteLine();
             }
         }
     }
