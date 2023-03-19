@@ -13,3 +13,20 @@ C:\Users\user\Desktop\ITB\ITB SEMESTER 4\STRATEGI ALGORITMA\Tubes2_a-maze-ing\ob
 C:\Users\user\Desktop\ITB\ITB SEMESTER 4\STRATEGI ALGORITMA\Tubes2_a-maze-ing\obj\Debug\net7.0\app.pdb
 C:\Users\user\Desktop\ITB\ITB SEMESTER 4\STRATEGI ALGORITMA\Tubes2_a-maze-ing\obj\Debug\net7.0\app.genruntimeconfig.cache
 C:\Users\user\Desktop\ITB\ITB SEMESTER 4\STRATEGI ALGORITMA\Tubes2_a-maze-ing\obj\Debug\net7.0\ref\app.dll
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.csproj.AssemblyReference.cache
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.GeneratedMSBuildEditorConfig.editorconfig
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.AssemblyInfoInputs.cache
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.AssemblyInfo.cs
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.csproj.CoreCompileInputs.cache
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.dll
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\refint\app.dll
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.pdb
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.exe
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.deps.json
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.runtimeconfig.json
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.dll
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.pdb
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.genruntimeconfig.cache
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\ref\app.dll
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\net7.0\System.Windows.Forms.dll
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.csproj.CopyComplete
