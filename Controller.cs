@@ -2,16 +2,18 @@ namespace amazeing
 {
     class Controller
     {
-        // Attributes
+        // === ATTRIBUTES ======================================================================
         private Maze maze;
+        private Solution[] solutions;
 
-        // Constructor Destructor
+        // === CONSTRUCTOR =====================================================================
         public Controller()
         {
             this.maze = new Maze();
+            this.solutions = new Solution[2];
         }
 
-        // Initializer
+        // === METHODS =========================================================================
         public void importMaze()
         {
             bool inputInvalid = true;
@@ -48,7 +50,42 @@ namespace amazeing
             }
         }
 
-        // Display
+        public void solve()
+        {
+            Solver solver = new Solver();
+            string menu;
+
+            bool isValid = false;
+            while (!isValid)
+            {
+                try
+                {
+                    Console.Write("BFS/DFS: ");
+                    menu = Console.ReadLine();
+
+                    if (menu != "DFS")
+                    {
+                        throw new Exception("Menu invalid");
+                    }
+
+                    if (menu == "DFS")
+                    {
+                        this.solutions[1] = solver.solve(1, maze);
+                        this.displaySolution(1);
+                    }
+
+                    isValid = true;
+                }
+                catch (Exception err)
+                {
+                    Console.WriteLine(err.Message);
+                }
+            }
+
+
+        }
+
+        // === DISPLAY =========================================================================
         public void displayMazeFilePath()
         {
             Console.WriteLine(maze.getMazeFilePath());
@@ -57,6 +94,38 @@ namespace amazeing
         public void displayMazeFileName()
         {
             Console.WriteLine(maze.getMazeFileName());
+        }
+
+        public void displaySolution(int id)
+        {
+            Console.WriteLine();
+            Console.WriteLine("SOLUTION");
+            Console.WriteLine("Algorithm\t: " + this.solutions[id].getAlgorithmName());
+            Console.WriteLine("Visited Node\t: " + this.solutions[id].getVisitedNode());
+
+            Console.Write("Route\t: ");
+            for (int i = 0; i < 100; i++)
+            {
+                if (this.solutions[id].getRoute().getNodeRoute(i) == null)
+                {
+                    break;
+                }
+
+                Console.Write("(" + this.solutions[id].getRoute().getNodeRoute(i).getPosX() + "," + this.solutions[id].getRoute().getNodeRoute(i).getPosY() + ") ");
+            }
+            Console.WriteLine();
+
+            Console.Write("Steps\t: ");
+            for (int i = 0; i < 100; i++)
+            {
+                if (this.solutions[id].getRoute().getStepRoute(i) == null)
+                {
+                    break;
+                }
+
+                Console.Write(this.solutions[id].getRoute().getStepRoute(i) + " ");
+            }
+            Console.WriteLine();
         }
 
     }

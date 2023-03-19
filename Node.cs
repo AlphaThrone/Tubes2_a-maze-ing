@@ -2,10 +2,10 @@ namespace amazeing
 {
     class Node
     {
-        // Attributes
+        // === ATTRIBUTES ======================================================================
         private int id;
         private string type;
-        private string colour;
+        private string status;
         private int posX;
         private int posY;
         private Node? leftNode;
@@ -14,7 +14,7 @@ namespace amazeing
         private Node? bottomNode;
         private static int numOfNode = 0;
 
-        // Constructor
+        // === CONSTRUCTOR =====================================================================
         public Node(char symbol, int posX, int posY)
         {
             this.id = numOfNode;
@@ -36,14 +36,24 @@ namespace amazeing
                 throw new Exception("Maze file contains invalid character");
             }
 
-            this.colour = "Dark Brown";
+            this.status = "Not visited";
             this.posX = posX;
             this.posY = posY;
 
             numOfNode++;
         }
 
-        // Getter Setter
+        // === GETTER SETTER ===================================================================
+        public int getPosX()
+        {
+            return this.posX;
+        }
+
+        public int getPosY()
+        {
+            return this.posY;
+        }
+
         public void setLeftNode(Node leftNode)
         {
             this.leftNode = leftNode;
@@ -56,7 +66,7 @@ namespace amazeing
         {
             this.topNode = topNode;
         }
-        public Node getTopeNode()
+        public Node getTopNode()
         {
             return this.topNode;
         }
@@ -64,7 +74,7 @@ namespace amazeing
         {
             this.rightNode = rightNode;
         }
-        public Node getRighteNode()
+        public Node getRightNode()
         {
             return this.rightNode;
         }
@@ -80,6 +90,16 @@ namespace amazeing
         public string getType()
         {
             return this.type;
+        }
+
+        public void setStatus(string status)
+        {
+            this.status = status;
+        }
+
+        public string getStatus()
+        {
+            return this.status;
         }
     }
 }
