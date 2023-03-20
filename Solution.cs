@@ -9,6 +9,7 @@ namespace SolutionFile
         private Maze maze;
         private string algorithm;
         private long execTime;
+        private int visitedNode;
         private Route route;
         private int treasureFound;
 
@@ -29,6 +30,7 @@ namespace SolutionFile
             this.execTime = 0;
             this.route = new Route();
             this.treasureFound = 0;
+            this.visitedNode = 0;
         }
 
         // === GETTER SETTER ===================================================================
@@ -67,25 +69,14 @@ namespace SolutionFile
             return this.route;
         }
 
+        public void setVisitedNode(int newVisitedNode)
+        {
+            this.visitedNode = newVisitedNode;
+        }
+
         public int getVisitedNode()
         {
-            int ret = 0;
-
-            for (int i = 0; i < maze.getMazeDepth(); i++)
-            {
-                for (int j = 0; j < maze.getMazeWidth(); j++)
-                {
-                    if (this.maze.getMatrix()[i, j] != null)
-                    {
-                        if (this.maze.getMatrix()[i, j].getStatus() == "Visited")
-                        {
-                            ret++;
-                        }
-                    }
-                }
-            }
-
-            return ret;
+            return this.visitedNode;
         }
     }
 }

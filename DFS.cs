@@ -20,6 +20,7 @@ namespace DFSFile
 
             // 1. Update node status
             currentNode.setStatus("Checking");
+            solution.setVisitedNode(solution.getVisitedNode() + 1);
 
             // 2. Update route graph
             solution.getRoute().addNodeToRoute(currentNode);
@@ -33,36 +34,39 @@ namespace DFSFile
             // 4. Update node status
             currentNode.setStatus("Route");
 
-            // 5. Go to left node if exists
-            if (currentNode.getLeftNode() != null && currentNode.getLeftNode().getStatus() == "Not visited" && solution.getTreasureFound() != solution.getMaze().getNTreasure())
+            if (solution.getTreasureFound() != solution.getMaze().getNTreasure())
             {
-                keepRoute = false;
-                solution.getRoute().addStepToRoute("L");
-                solution = use(currentNode.getLeftNode(), solution, "L");
-            }
+                // 5. Go to left node if exists
+                if (currentNode.getLeftNode() != null && currentNode.getLeftNode().getStatus() == "Not visited")
+                {
+                    keepRoute = false;
+                    solution.getRoute().addStepToRoute("L");
+                    solution = use(currentNode.getLeftNode(), solution, "L");
+                }
 
-            // 6. Go to top node if exists
-            if (currentNode.getTopNode() != null && currentNode.getTopNode().getStatus() == "Not visited" && solution.getTreasureFound() != solution.getMaze().getNTreasure())
-            {
-                keepRoute = false;
-                solution.getRoute().addStepToRoute("U");
-                solution = use(currentNode.getTopNode(), solution, "U");
-            }
+                // 6. Go to top node if exists
+                if (currentNode.getTopNode() != null && currentNode.getTopNode().getStatus() == "Not visited")
+                {
+                    keepRoute = false;
+                    solution.getRoute().addStepToRoute("U");
+                    solution = use(currentNode.getTopNode(), solution, "U");
+                }
 
-            // 7. Go to right node if exists
-            if (currentNode.getRightNode() != null && currentNode.getRightNode().getStatus() == "Not visited" && solution.getTreasureFound() != solution.getMaze().getNTreasure())
-            {
-                keepRoute = false;
-                solution.getRoute().addStepToRoute("R");
-                solution = use(currentNode.getRightNode(), solution, "R");
-            }
+                // 7. Go to right node if exists
+                if (currentNode.getRightNode() != null && currentNode.getRightNode().getStatus() == "Not visited")
+                {
+                    keepRoute = false;
+                    solution.getRoute().addStepToRoute("R");
+                    solution = use(currentNode.getRightNode(), solution, "R");
+                }
 
-            // 8. Go to bottom node if exists
-            if (currentNode.getBottomNode() != null && currentNode.getBottomNode().getStatus() == "Not visited" && solution.getTreasureFound() != solution.getMaze().getNTreasure())
-            {
-                keepRoute = false;
-                solution.getRoute().addStepToRoute("D");
-                solution = use(currentNode.getBottomNode(), solution, "D");
+                // 8. Go to bottom node if exists
+                if (currentNode.getBottomNode() != null && currentNode.getBottomNode().getStatus() == "Not visited")
+                {
+                    keepRoute = false;
+                    solution.getRoute().addStepToRoute("D");
+                    solution = use(currentNode.getBottomNode(), solution, "D");
+                }
             }
 
             // 9. Backtrack

@@ -68,15 +68,19 @@ namespace ControllerFile
                     Console.Write("BFS/DFS: ");
                     menu = Console.ReadLine();
 
-                    if (menu != "DFS")
+                    if (menu == "BFS")
                     {
-                        throw new Exception("Menu invalid");
+                        this.solutions[0] = solver.solve(0, maze);
+                        this.displaySolution(0);
                     }
-
-                    if (menu == "DFS")
+                    else if (menu == "DFS")
                     {
                         this.solutions[1] = solver.solve(1, maze);
                         this.displaySolution(1);
+                    }
+                    else
+                    {
+                        throw new Exception("Menu invalid");
                     }
 
                     isValid = true;
