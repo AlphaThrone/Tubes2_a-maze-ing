@@ -11,10 +11,8 @@ namespace BFSFile
         public BFS() : base("BFS") { }
 
         // === METHODS =========================================================================
-        public override Solution use(Node currentNode, Solution prevSolution, string currentStep)
+        public override Solution use(Solution solution)
         {
-            Solution solution = prevSolution;
-
             return solution;
         }
     }
