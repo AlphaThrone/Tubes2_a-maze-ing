@@ -103,5 +103,40 @@ namespace NodeFile
         {
             return this.status;
         }
+
+        // === METHODS =========================================================================
+        public bool isAdjacent(Node other)
+        {
+            if (this.posX + 1 == this.posX || this.posX - 1 == this.posX)
+            {
+                return true;
+            }
+            if (this.posY + 1 == this.posY || this.posY - 1 == this.posY)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool isExplorable()
+        {
+            if (this.getLeftNode() != null && this.getLeftNode().getStatus() == "Not visited")
+            {
+                return true;
+            }
+            if (this.getTopNode() != null && this.getTopNode().getStatus() == "Not visited")
+            {
+                return true;
+            }
+            if (this.getRightNode() != null && this.getRightNode().getStatus() == "Not visited")
+            {
+                return true;
+            }
+            if (this.getBottomNode() != null && this.getBottomNode().getStatus() == "Not visited")
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

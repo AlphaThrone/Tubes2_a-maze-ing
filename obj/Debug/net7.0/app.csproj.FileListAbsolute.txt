@@ -28,5 +28,3 @@ E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.pdb
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.genruntimeconfig.cache
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\ref\app.dll
-E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\net7.0\System.Windows.Forms.dll
-E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.csproj.CopyComplete

@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\STRATEGI ALGORITMA\\Tubes2_a-maze-ing\\app.csproj": {}
+    "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\STRATEGI ALGORITMA\\Tubes2_a-maze-ing\\app.csproj": {
+    "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\STRATEGI ALGORITMA\\Tubes2_a-maze-ing\\app.csproj",
+        "projectUniqueName": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj",
         "projectName": "app",
-        "projectPath": "C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\STRATEGI ALGORITMA\\Tubes2_a-maze-ing\\app.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\STRATEGI ALGORITMA\\Tubes2_a-maze-ing\\obj\\",
+        "projectPath": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj",
+        "packagesPath": "C:\\Users\\Ditra\\.nuget\\packages\\",
+        "outputPath": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ditra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {

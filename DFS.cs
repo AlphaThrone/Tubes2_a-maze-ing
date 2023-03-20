@@ -1,4 +1,3 @@
-using System;
 using AlgorithmFile;
 using SolutionFile;
 using NodeFile;
@@ -8,101 +7,118 @@ namespace DFSFile
     class DFS : Algorithm
     {
         // === ATTRIBUTES ======================================================================
-        private static bool keepRoute = false;
+        private Node?[] nodeStack;
 
         // === CONSTRUCTOR =====================================================================
-        public DFS() : base("DFS") { }
+        public DFS() : base("DFS")
+        {
+            this.nodeStack = new Node[100];
+        }
 
         // === METHODS =========================================================================
-        public override Solution use(Node currentNode, Solution prevSolution, string currentStep)
+        public void push(Node newNode)
         {
-            Solution solution = prevSolution;
-
-            // 1. Update node status
-            currentNode.setStatus("Checking");
-
-            // 2. Update route graph
-            solution.getRoute().addNodeToRoute(currentNode);
-
-            // 3. Update treasure found
-            if (currentNode.getType() == "Treasure")
+            for (int i = 0; i < 100; i++)
             {
-                solution.setTreasureFound(solution.getTreasureFound() + 1);
-                Console.WriteLine("FOUND TREASURE : " + solution.getTreasureFound());
-            }
-
-            // 4. Update node status
-            currentNode.setStatus("Route");
-
-            // 5. Go to left node if exists
-            if (currentNode.getLeftNode() != null && currentNode.getLeftNode().getStatus() == "Not visited" && solution.getTreasureFound() != solution.getMaze().getNTreasure())
-            {
-                keepRoute = false;
-                solution.getRoute().addStepToRoute("L");
-                solution = use(currentNode.getLeftNode(), solution, "L");
-            }
-
-            // 6. Go to top node if exists
-            if (currentNode.getTopNode() != null && currentNode.getTopNode().getStatus() == "Not visited" && solution.getTreasureFound() != solution.getMaze().getNTreasure())
-            {
-                keepRoute = false;
-                solution.getRoute().addStepToRoute("U");
-                solution = use(currentNode.getTopNode(), solution, "U");
-            }
-
-            // 7. Go to right node if exists
-            if (currentNode.getRightNode() != null && currentNode.getRightNode().getStatus() == "Not visited" && solution.getTreasureFound() != solution.getMaze().getNTreasure())
-            {
-                keepRoute = false;
-                solution.getRoute().addStepToRoute("R");
-                solution = use(currentNode.getRightNode(), solution, "R");
-            }
-
-            // 8. Go to bottom node if exists
-            if (currentNode.getBottomNode() != null && currentNode.getBottomNode().getStatus() == "Not visited" && solution.getTreasureFound() != solution.getMaze().getNTreasure())
-            {
-                keepRoute = false;
-                solution.getRoute().addStepToRoute("D");
-                solution = use(currentNode.getBottomNode(), solution, "D");
-            }
-
-            // 9. Backtrack
-            if (solution.getTreasureFound() != solution.getMaze().getNTreasure())
-            {
-                if (currentNode.getType() == "Treasure")
+                if (this.nodeStack[i] == null)
                 {
-                    keepRoute = true;
+                    this.nodeStack[i] = newNode;
+                    break;
+                }
+            }
+        }
+
+        public void pop()
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                if (this.nodeStack[i] == null)
+                {
+                    this.nodeStack[i - 1] = null;
+                    break;
+                }
+            }
+        }
+
+        public Node getTop()
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                if (this.nodeStack[i] == null)
+                {
+                    return this.nodeStack[i - 1];
+                }
+            }
+            return null;
+        }
+
+        public override Solution use(Solution solution)
+        {
+            Solution newSolution = solution;
+            this.nodeStack = new Node[newSolution.getMaze().getMazeDepth() * newSolution.getMaze().getMazeWidth()];
+
+            push(newSolution.getMaze().getStartingNode());
+
+            while (true)
+            {
+                Node currentNode = getTop();
+                newSolution.getRoute().addNodeToRoute(getTop());
+
+                if (currentNode.getStatus() != "Visited")
+                {
+                    newSolution.setVisitedNode(newSolution.getVisitedNode() + 1);
+                }
+                if (currentNode.getType() == "Treasure" && currentNode.getStatus() != "Visited")
+                {
+                    newSolution.setTreasureFound(newSolution.getTreasureFound() + 1);
+                    Console.WriteLine("TREASURE FOUND: " + newSolution.getTreasureFound() + " id: " + currentNode.getPosX() + "," + currentNode.getPosY());
+
+                    if (newSolution.getTreasureFound() == newSolution.getMaze().getNTreasure())
+                    {
+                        break;
+                    }
                 }
 
-                if (!keepRoute)
+                currentNode.setStatus("Checking");
+
+                if (currentNode.getLeftNode() != null && currentNode.getLeftNode().getStatus() == "Not visited")
                 {
-                    solution.getRoute().removeStepFromRoute();
-                    solution.getRoute().removeNodeFromRoute();
-                    currentNode.setStatus("Visited");
+                    push(currentNode.getLeftNode());
+                }
+                else if (currentNode.getTopNode() != null && currentNode.getTopNode().getStatus() == "Not visited")
+                {
+                    push(currentNode.getTopNode());
+                }
+                else if (currentNode.getRightNode() != null && currentNode.getRightNode().getStatus() == "Not visited")
+                {
+                    push(currentNode.getRightNode());
+                }
+                else if (currentNode.getBottomNode() != null && currentNode.getBottomNode().getStatus() == "Not visited")
+                {
+                    push(currentNode.getBottomNode());
                 }
                 else
                 {
-                    solution.getRoute().addNodeToRoute(currentNode);
-                    if (currentStep == "L")
+                    bool isKeepTrack = false;
+                    while (!getTop().isExplorable())
                     {
-                        solution.getRoute().addStepToRoute("R");
-                    }
-                    else if (currentStep == "U")
-                    {
-                        solution.getRoute().addStepToRoute("D");
-                    }
-                    else if (currentStep == "R")
-                    {
-                        solution.getRoute().addStepToRoute("L");
-                    }
-                    else if (currentStep == "D")
-                    {
-                        solution.getRoute().addStepToRoute("U");
+                        if (getTop().getType() != "Treasure" && !isKeepTrack)
+                        {
+                            pop();
+                            solution.getRoute().removeNodeFromRoute();
+                        }
+                        else
+                        {
+                            pop();
+                            isKeepTrack = true;
+                            solution.getRoute().addNodeToRoute(getTop());
+                        }
                     }
                 }
-            }
 
-            return solution;
+                currentNode.setStatus("Visited");
+            }
+            return newSolution;
         }
     }
 }
