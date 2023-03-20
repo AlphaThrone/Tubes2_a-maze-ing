@@ -106,9 +106,10 @@ namespace ControllerFile
             Console.WriteLine();
             Console.WriteLine("SOLUTION");
             Console.WriteLine("Algorithm\t: " + this.solutions[id].getAlgorithmName());
-            Console.WriteLine("Visited Node\t: " + this.solutions[id].getVisitedNode());
+            Console.WriteLine("Execution time\t: " + this.solutions[id].getExecutionTime() + " ms");
+            Console.WriteLine("Visited Node\t: " + this.solutions[id].getVisitedNode() + " nodes");
 
-            Console.Write("Route\t: ");
+            Console.Write("Route\t\t: ");
             for (int i = 0; i < 100; i++)
             {
                 if (this.solutions[id].getRoute().getNodeRoute(i) == null)
@@ -120,7 +121,7 @@ namespace ControllerFile
             }
             Console.WriteLine();
 
-            Console.Write("Steps\t: ");
+            Console.Write("Steps\t\t: ");
             for (int i = 0; i < 100; i++)
             {
                 if (this.solutions[id].getRoute().getStepRoute(i) == null)
@@ -130,6 +131,7 @@ namespace ControllerFile
 
                 Console.Write(this.solutions[id].getRoute().getStepRoute(i) + " ");
             }
+            Console.Write("(" + this.solutions[id].getRoute().getNRouteSteps() + " steps)");
             Console.WriteLine();
         }
 

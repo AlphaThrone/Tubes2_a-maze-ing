@@ -28,7 +28,6 @@ namespace DFSFile
             if (currentNode.getType() == "Treasure")
             {
                 solution.setTreasureFound(solution.getTreasureFound() + 1);
-                Console.WriteLine("FOUND TREASURE : " + solution.getTreasureFound());
             }
 
             // 4. Update node status

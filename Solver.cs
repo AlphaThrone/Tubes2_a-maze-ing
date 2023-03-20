@@ -23,7 +23,11 @@ namespace SolverFile
         {
             Solution solution = new Solution(id, maze);
 
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
             solution = this.algorithms[id].use(solution.getMaze().getStartingNode(), solution, " ");
+            watch.Stop();
+            solution.setExecutionTime(watch.ElapsedMilliseconds);
 
             return solution;
         }
