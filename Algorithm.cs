@@ -1,4 +1,9 @@
-namespace amazeing
+using SolutionFile;
+using NodeFile;
+using System;
+
+
+namespace AlgorithmFile
 {
     abstract class Algorithm
     {

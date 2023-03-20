@@ -1,4 +1,7 @@
-namespace amazeing
+using MazeFile;
+using RouteFile;
+
+namespace SolutionFile
 {
     class Solution
     {

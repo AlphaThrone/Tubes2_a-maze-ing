@@ -1,21 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xv72Xj0eCc+Foumnl5/36Zloo8SCHDk8coKEh9fd7TSLvk/rrcXA1Xkmm67dvTJgL0s41iniSDviV6LZ7dvPwg==",
+  "dgSpecHash": "cC2OcJEV2QqwBVRDH3k43pec8zencoT0bJLFTbyvXPg1nti0LoYixi3l37wVVtwnkFfU0Q5PcmURJmJM5j5aiQ==",
   "success": true,
-  "projectFilePath": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Ditra\\.nuget\\packages\\system.windows.forms\\4.0.0\\system.windows.forms.4.0.0.nupkg.sha512"
-  ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Windows.Forms 4.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "System.Windows.Forms",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "projectFilePath": "C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\STRATEGI ALGORITMA\\Tubes2_a-maze-ing\\app.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
 }

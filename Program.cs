@@ -1,4 +1,6 @@
-﻿namespace amazeing
+﻿using System;
+using ControllerFile;
+namespace amazeing
 {
     class Program
     {

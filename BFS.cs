@@ -1,4 +1,9 @@
-namespace amazeing
+using AlgorithmFile;
+using System;
+using NodeFile;
+using SolutionFile;
+
+namespace BFSFile
 {
     class BFS : Algorithm
     {

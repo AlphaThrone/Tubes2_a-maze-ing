@@ -1,4 +1,9 @@
-namespace amazeing
+using MazeFile;
+using SolutionFile;
+using System;
+using SolverFile;
+
+namespace ControllerFile
 {
     class Controller
     {

@@ -1,4 +1,10 @@
-namespace amazeing
+using SolutionFile;
+using MazeFile;
+using AlgorithmFile;
+using DFSFile;
+using BFSFile;
+
+namespace SolverFile
 {
     class Solver
     {

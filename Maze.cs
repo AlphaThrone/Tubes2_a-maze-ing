@@ -1,4 +1,6 @@
-namespace amazeing
+using NodeFile;
+
+namespace MazeFile
 {
     class Maze
     {

@@ -1,4 +1,9 @@
-namespace amazeing
+using System;
+using AlgorithmFile;
+using SolutionFile;
+using NodeFile;
+
+namespace DFSFile
 {
     class DFS : Algorithm
     {

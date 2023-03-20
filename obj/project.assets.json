@@ -1,59 +1,33 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
-      "System.Windows.Forms/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/System.Windows.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/System.Windows.Forms.dll": {}
-        }
-      }
-    }
+    "net7.0": {}
   },
-  "libraries": {
-    "System.Windows.Forms/4.0.0": {
-      "sha512": "WL3QPG1q88aIWO0JPOlkCeyNE+FK4ufSKY5j6J6qAFQyfCFiiOYxi8RAhev9H0CS/wmKbIK8qr8xZBod85oWKw==",
-      "type": "package",
-      "path": "system.windows.forms/4.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/System.Windows.Forms.dll",
-        "system.windows.forms.4.0.0.nupkg.sha512",
-        "system.windows.forms.nuspec"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net7.0": [
-      "System.Windows.Forms >= 4.0.0"
-    ]
+    "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Ditra\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\STRATEGI ALGORITMA\\Tubes2_a-maze-ing\\app.csproj",
       "projectName": "app",
-      "projectPath": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj",
-      "packagesPath": "C:\\Users\\Ditra\\.nuget\\packages\\",
-      "outputPath": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\obj\\",
+      "projectPath": "C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\STRATEGI ALGORITMA\\Tubes2_a-maze-ing\\app.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\ITB\\ITB SEMESTER 4\\STRATEGI ALGORITMA\\Tubes2_a-maze-ing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ditra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
         "net7.0": {
@@ -70,12 +44,6 @@
     "frameworks": {
       "net7.0": {
         "targetAlias": "net7.0",
-        "dependencies": {
-          "System.Windows.Forms": {
-            "target": "Package",
-            "version": "[4.0.0, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -95,17 +63,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Windows.Forms 4.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "System.Windows.Forms",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  }
 }

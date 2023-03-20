@@ -7,8 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Windows.Forms" Version="4.0.0" />
-  </ItemGroup>
-
 </Project>
