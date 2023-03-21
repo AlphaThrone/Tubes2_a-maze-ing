@@ -43,6 +43,6 @@ namespace AlgorithmFile
         }
 
         // === METHODS =========================================================================
-        public abstract Solution use(Node currentNode, Solution prevSolution, string currentStep);
+        public abstract Solution use(Solution prevSolution);
     }
 }

@@ -23,7 +23,8 @@ namespace SolverFile
         {
             Solution solution = new Solution(id, maze);
 
-            solution = this.algorithms[id].use(solution.getMaze().getStartingNode(), solution, " ");
+            solution = this.algorithms[id].use(solution);
+            solution.getRoute().initializeStep();
 
             return solution;
         }
