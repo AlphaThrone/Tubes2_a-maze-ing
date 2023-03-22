@@ -110,6 +110,7 @@ namespace MazeFile
                         if (lines[i][j] != 'X')
                         {
                             Node newNode = new Node(lines[i][j], x, y);
+                            newNode.setStatus("Not visited");
                             this.matrix[x, y] = newNode;
                             this.nNode++;
 

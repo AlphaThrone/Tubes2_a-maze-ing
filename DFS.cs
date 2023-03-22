@@ -1,4 +1,3 @@
-using System;
 using AlgorithmFile;
 using SolutionFile;
 using NodeFile;
@@ -8,10 +7,13 @@ namespace DFSFile
     class DFS : Algorithm
     {
         // === ATTRIBUTES ======================================================================
-        private static bool keepRoute = false;
+        private Node?[] nodeStack;
 
         // === CONSTRUCTOR =====================================================================
-        public DFS() : base("DFS") { }
+        public DFS() : base("DFS")
+        {
+            this.nodeStack = new Node[100];
+        }
 
         // === METHODS =========================================================================
         public override Solution use(Solution prevSolution)
