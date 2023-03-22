@@ -3,6 +3,7 @@ using MazeFile;
 using AlgorithmFile;
 using DFSFile;
 using BFSFile;
+using System.Diagnostics;
 
 namespace SolverFile
 {
@@ -23,7 +24,11 @@ namespace SolverFile
         {
             Solution solution = new Solution(id, maze);
 
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             solution = this.algorithms[id].use(solution);
+            stopwatch.Stop();
+            solution.setExecTime(stopwatch.ElapsedMilliseconds);
             solution.getRoute().initializeStep();
 
             return solution;

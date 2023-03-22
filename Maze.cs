@@ -72,17 +72,12 @@ namespace MazeFile
         {
             string[] lines = File.ReadAllLines(this.filePath);
             this.depth = lines.Length;
-            this.width = lines[0].Length - this.depth + 1;
+            this.width = (lines[0].Length + 1) / 2;
 
             // File Validation (Must be a rectangle)
-            if (this.width != this.depth)
-            {
-                throw new Exception("Maze must be a rectangle");
-            }
-
             for (int i = 1; i < this.depth; i++)
             {
-                if (this.width != lines[i].Length - this.depth + 1)
+                if (this.width != (lines[i].Length + 1) / 2)
                 {
                     throw new Exception("Maze must be a rectangle");
                 }
@@ -93,7 +88,7 @@ namespace MazeFile
         {
             string[] lines = File.ReadAllLines(this.filePath);
             this.depth = lines.Length;
-            this.width = lines[0].Length - this.depth + 1;
+            this.width = (lines[0].Length + 1) / 2;
 
             // 1. Create all nodes
             this.matrix = new Node[this.depth, this.width];

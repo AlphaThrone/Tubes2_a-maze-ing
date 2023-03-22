@@ -8,7 +8,7 @@ namespace SolutionFile
         // === ATTRIBUTES ======================================================================
         private Maze maze;
         private string algorithm;
-        private int execTime;
+        private long execTime;
         private int visitedNode;
         private Route route;
         private int treasureFound;
@@ -52,6 +52,16 @@ namespace SolutionFile
         public int getTreasureFound()
         {
             return this.treasureFound;
+        }
+
+        public void setExecTime(long execTime)
+        {
+            this.execTime = execTime;
+        }
+
+        public long getExecTime()
+        {
+            return this.execTime;
         }
 
         public Route getRoute()
