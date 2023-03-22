@@ -30,3 +30,22 @@ E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\ref\app.dll
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\net7.0\System.Windows.Forms.dll
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.csproj.CopyComplete
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.exe
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.deps.json
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.runtimeconfig.json
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.dll
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\bin\Debug\net7.0\app.pdb
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\bin\Debug\net7.0\System.Windows.Forms.dll
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.csproj.AssemblyReference.cache
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.GeneratedMSBuildEditorConfig.editorconfig
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.AssemblyInfoInputs.cache
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.AssemblyInfo.cs
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.csproj.CoreCompileInputs.cache
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.csproj.CopyComplete
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.dll
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\refint\app.dll
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.pdb
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.genruntimeconfig.cache
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\ref\app.dll
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\WinFormsApp1.Form1.resources
+C:\UNI\SEMESTER4\IF2211-Strategi-Algoritma\TUBES\Tubes-2\Tubes2_a-maze-ing\obj\Debug\net7.0\app.csproj.GenerateResource.cache

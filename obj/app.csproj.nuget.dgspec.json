@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj": {}
+    "C:\\UNI\\SEMESTER4\\IF2211-Strategi-Algoritma\\TUBES\\Tubes-2\\Tubes2_a-maze-ing\\app.csproj": {}
   },
   "projects": {
-    "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj": {
+    "C:\\UNI\\SEMESTER4\\IF2211-Strategi-Algoritma\\TUBES\\Tubes-2\\Tubes2_a-maze-ing\\app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj",
+        "projectUniqueName": "C:\\UNI\\SEMESTER4\\IF2211-Strategi-Algoritma\\TUBES\\Tubes-2\\Tubes2_a-maze-ing\\app.csproj",
         "projectName": "app",
-        "projectPath": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\app.csproj",
-        "packagesPath": "C:\\Users\\Ditra\\.nuget\\packages\\",
-        "outputPath": "E:\\Kuliah\\Semester 4\\IF2211 Strategi Algoritma\\5 - BFS and DFS\\Tubes 2\\Tubes2_a-maze-ing\\obj\\",
+        "projectPath": "C:\\UNI\\SEMESTER4\\IF2211-Strategi-Algoritma\\TUBES\\Tubes-2\\Tubes2_a-maze-ing\\app.csproj",
+        "packagesPath": "C:\\Users\\Azmi Hasna Zahrani\\.nuget\\packages\\",
+        "outputPath": "C:\\UNI\\SEMESTER4\\IF2211-Strategi-Algoritma\\TUBES\\Tubes-2\\Tubes2_a-maze-ing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ditra\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Azmi Hasna Zahrani\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
