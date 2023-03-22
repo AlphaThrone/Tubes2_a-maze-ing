@@ -7,12 +7,14 @@ namespace RouteFile
         // === ATTRIBUTES ======================================================================
         private Node?[] routeGraph;
         private string?[] routeSteps;
+        private int nSteps;
 
         // === CONSTRUCTOR =====================================================================
         public Route()
         {
             this.routeGraph = new Node[100];
             this.routeSteps = new string[100];
+            this.nSteps = 0;
         }
 
         // === GETTER SETTER ===================================================================
@@ -24,6 +26,11 @@ namespace RouteFile
         public string? getStepRoute(int idx)
         {
             return routeSteps[idx];
+        }
+
+        public int getNSteps()
+        {
+            return this.nSteps;
         }
 
         // === METHODS =========================================================================
@@ -61,6 +68,7 @@ namespace RouteFile
                     break;
                 }
             }
+            this.nSteps++;
         }
 
         public void removeStepFromRoute()
@@ -73,6 +81,7 @@ namespace RouteFile
                     break;
                 }
             }
+            this.nSteps--;
         }
 
         public void initializeStep()

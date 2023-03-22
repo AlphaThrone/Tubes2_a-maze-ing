@@ -132,6 +132,8 @@ namespace ControllerFile
                 Console.Write(this.solutions[id].getRoute().getStepRoute(i) + " ");
             }
             Console.WriteLine();
+
+            Console.WriteLine("Number of steps\t: " + this.solutions[id].getRoute().getNSteps());
         }
 
     }

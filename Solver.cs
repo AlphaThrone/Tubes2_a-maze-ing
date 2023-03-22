@@ -20,6 +20,7 @@ namespace SolverFile
             this.algorithms[1] = new DFS();
         }
 
+        // === METHODS =========================================================================
         public Solution solve(int id, Maze maze)
         {
             Solution solution = new Solution(id, maze);
