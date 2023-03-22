@@ -103,5 +103,8 @@ namespace NodeFile
         {
             return this.status;
         }
+        public void printNode(){
+            Console.WriteLine("("+getPosX()+","+getPosY()+")");
+        }
     }
 }

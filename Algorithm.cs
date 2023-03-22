@@ -17,17 +17,13 @@ namespace AlgorithmFile
         public Algorithm()
         {
             this.id = -1;
-            this.name = "";
-            this.fullName = "";
-            this.desc = "";
+            this.name = "XXX";
+            this.fullName = "XXX";
+            this.desc = "XXX";
         }
 
         public Algorithm(string name)
         {
-            this.name = name;
-            this.fullName = "";
-            this.desc = "";
-
             if (name == "BFS")
             {
                 this.id = 0;
@@ -39,10 +35,12 @@ namespace AlgorithmFile
                 this.id = 1;
                 this.fullName = "Depth First Search";
                 this.desc = "Breadth-first search proceeds in a concentric manner by visitting first all the vertices that are adjacent to a starting vertex, then all unvisited vertices two edges apart from it, and so on, untill all the vertices in the same connected component as the starting vertex are visited.";
+            } else {
+                throw new Exception("invalid algorithm\n");
             }
         }
 
         // === METHODS =========================================================================
-        public abstract Solution use(Node currentNode, Solution prevSolution, string currentStep);
+        public abstract Solution use(Solution prevSolution);
     }
 }

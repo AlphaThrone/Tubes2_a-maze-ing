@@ -6,6 +6,7 @@ namespace amazeing
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             Controller controller = new Controller();
             controller.importMaze();
             controller.solve();
