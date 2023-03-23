@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Amazeing
 {
@@ -27,7 +28,16 @@ namespace Amazeing
         // === METHODS =========================================================================
         public void importMaze(string file)
         {
-            this.maze.File = file;
+            this.maze.SourceFile = file;
+            try
+            {
+                this.maze.validate();
+            }
+            catch (Exception err)
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show(err.Message, "Invalid file", buttons, MessageBoxIcon.Error);
+            }
         }
     }
 }

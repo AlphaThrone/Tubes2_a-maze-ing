@@ -26,7 +26,7 @@ namespace Amazeing
             ofd.InitialDirectory = @"../../test/";
             ofd.Title = "Browse Maze File";
             ofd.DefaultExt = "txt";
-            ofd.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            ofd.Filter = "Text files (*.txt)|*.txt";
             ofd.CheckFileExists = true;
             ofd.CheckPathExists = true;
             if (ofd.ShowDialog() == DialogResult.OK )
