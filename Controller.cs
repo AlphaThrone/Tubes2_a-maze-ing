@@ -70,7 +70,8 @@ namespace ControllerFile
 
                     if (menu != "DFS")
                     {
-                        throw new Exception("Menu invalid");
+                        this.solutions[0] = solver.solve(0, maze);
+                        this.displaySolution(0);
                     }
 
                     if (menu == "DFS")

@@ -25,7 +25,37 @@ namespace RouteFile
         {
             return routeSteps[idx];
         }
+        public Node? getLastNodeRoute()
+        {
+            int i=0;
+            while (routeGraph[i]!=null){
+                i++;
+            }
+            return routeGraph[i];
+        }
+        public int getNumNodeRoute(){
+            int count=0;
+            for(int i=0; i < 100; i++){
 
+                if(routeGraph[i]==null){
+                    break;
+                }
+                count++;
+                
+            }
+            return count;
+        }
+        public void setRoute(Route otherRoute)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                if (otherRoute.routeGraph[i] == null){
+                    break;
+                }else{
+                    routeGraph[i] = otherRoute.routeGraph[i];
+                }
+            }
+        }
         // === METHODS =========================================================================
         public void addNodeToRoute(Node newNode)
         {

@@ -103,6 +103,9 @@ namespace NodeFile
         {
             return this.status;
         }
+        public void printNode(){
+            Console.WriteLine("("+getPosX()+","+getPosY()+")");
+        }
 
         // === METHODS =========================================================================
         public bool isAdjacent(Node other)
