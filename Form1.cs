@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,13 +15,15 @@ namespace Amazeing
     {
         private Controller controller;
         private System.Media.SoundPlayer soundPlayer;
+        private bool isPlaySound;
 
         public Window()
         {
             InitializeComponent();
             controller = new Controller();
             soundPlayer = new System.Media.SoundPlayer();
-         soundPlayer.SoundLocation = "../../Resources/bg-soundtrack.wav";
+            isPlaySound = true;
+            soundPlayer.SoundLocation = "../../Resources/bg-soundtrack.wav";
             soundPlayer.PlayLooping();
         }
 
@@ -123,6 +126,28 @@ namespace Amazeing
         }
 
         private void RouteVal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SoundBtn_Click(object sender, EventArgs e)
+        {
+            if(isPlaySound)
+            {
+                soundPlayer.Stop();
+                this.SoundBtn.BackgroundImage = global::Amazeing.Properties.Resources.sound_off;
+                isPlaySound = false;
+
+            }
+            else
+            {
+                soundPlayer.PlayLooping();
+                this.SoundBtn.BackgroundImage = global::Amazeing.Properties.Resources.sound_on;
+                isPlaySound = true;
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

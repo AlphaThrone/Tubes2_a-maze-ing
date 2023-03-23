@@ -130,5 +130,11 @@
   <ItemGroup>
     <None Include="Resources\route-label.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound-off.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

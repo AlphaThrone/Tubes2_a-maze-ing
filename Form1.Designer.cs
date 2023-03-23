@@ -45,6 +45,7 @@
             this.StepsVal = new System.Windows.Forms.Label();
             this.RouteLabel = new System.Windows.Forms.Button();
             this.RouteVal = new System.Windows.Forms.Label();
+            this.SoundBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AlgoTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -168,6 +169,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(520, 520);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // SearchBtn
             // 
@@ -344,6 +346,26 @@
             this.RouteVal.Text = "-";
             this.RouteVal.Click += new System.EventHandler(this.RouteVal_Click);
             // 
+            // SoundBtn
+            // 
+            this.SoundBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SoundBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SoundBtn.BackgroundImage = global::Amazeing.Properties.Resources.sound_on;
+            this.SoundBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SoundBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SoundBtn.FlatAppearance.BorderSize = 0;
+            this.SoundBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.SoundBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.SoundBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SoundBtn.Location = new System.Drawing.Point(554, 12);
+            this.SoundBtn.MaximumSize = new System.Drawing.Size(50, 50);
+            this.SoundBtn.MinimumSize = new System.Drawing.Size(50, 50);
+            this.SoundBtn.Name = "SoundBtn";
+            this.SoundBtn.Size = new System.Drawing.Size(50, 50);
+            this.SoundBtn.TabIndex = 17;
+            this.SoundBtn.UseVisualStyleBackColor = false;
+            this.SoundBtn.Click += new System.EventHandler(this.SoundBtn_Click);
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -351,6 +373,7 @@
             this.BackgroundImage = global::Amazeing.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1148, 647);
+            this.Controls.Add(this.SoundBtn);
             this.Controls.Add(this.RouteVal);
             this.Controls.Add(this.RouteLabel);
             this.Controls.Add(this.StepsVal);
@@ -399,6 +422,7 @@
         private System.Windows.Forms.Label StepsVal;
         private System.Windows.Forms.Button RouteLabel;
         private System.Windows.Forms.Label RouteVal;
+        private System.Windows.Forms.Button SoundBtn;
     }
 }
 
