@@ -1,6 +1,5 @@
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\Amazeing.csproj.AssemblyReference.cache
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\Amazeing.csproj.SuggestedBindingRedirects.cache
-E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\Amazeing.Form1.resources
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\Amazeing.csproj.GenerateResource.cache
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\Amazeing.exe.config
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\bin\Debug\Amazeing.exe
@@ -9,3 +8,4 @@ E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\Amazeing.csproj.CoreCompileInputs.cache
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\Amazeing.exe
 E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\Amazeing.pdb
+E:\Kuliah\Semester 4\IF2211 Strategi Algoritma\5 - BFS and DFS\Tubes 2\Tubes2_a-maze-ing\obj\Debug\Amazeing.Window.resources
