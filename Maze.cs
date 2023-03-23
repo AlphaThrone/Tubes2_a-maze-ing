@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.CompilerServices;
 
 namespace Amazeing
 {
@@ -14,6 +15,8 @@ namespace Amazeing
         private char[,] matrix;
         private int depth;
         private int width;
+        public Node startingNode;
+        public int nTreasure;
 
         // === CONSTRUCTOR =====================================================================
         public Maze()
@@ -21,6 +24,7 @@ namespace Amazeing
             this.sourceFile = "";
             this.depth = 0;
             this.width = 0;
+            this.nTreasure = 0;
         }
 
         // === GETTER SETTER ===================================================================
@@ -42,8 +46,7 @@ namespace Amazeing
         }
 
         // === METHODS =========================================================================
-
-        public void validate()
+        public void Validate()
         {
             string[] lines = File.ReadAllLines(this.sourceFile);
             this.depth = lines.Length;
@@ -117,5 +120,82 @@ namespace Amazeing
             }
         }
 
+        public void Build()
+        {
+            Node[,] nodeMatrix = new Node[this.depth, this.width];
+
+            // 1. Construct all nodes
+            for(int i = 0; i < this.depth; i++)
+            {
+                for(int j = 0; j < this.width; j++)
+                {
+                    if (this.matrix[i,j] != 'X')
+                    {
+                        Node newNode = new Node(this.matrix[i, j], i, j);
+                        newNode.Status = "Not visited";
+                        nodeMatrix[i,j] = newNode;
+
+                        if (this.matrix[i,j] == 'K')
+                        {
+                            this.startingNode = newNode;
+                        }
+                        else if (this.matrix[i,j] == 'T')
+                        {
+                            this.nTreasure++;
+                        }
+                    }
+                    else
+                    {
+                        nodeMatrix[i, j] = null;
+                    }
+                }
+            }
+
+            // 2. Link all nodes
+            for(int i = 0; i < this.depth; i++)
+            {
+                for (int j = 0; j < this.width; j++)
+                {
+                    if (nodeMatrix[i,j] != null)
+                    {
+                        // Set left node
+                        if (j != 0)
+                        {
+                            if (nodeMatrix[i, j- 1] != null)
+                            {
+                                nodeMatrix[i, j].Left = nodeMatrix[i, j - 1];
+                            }
+                        }
+
+                        // Set top node
+                        if (i != 0)
+                        {
+                            if (nodeMatrix[i - 1, j] != null)
+                            {
+                                nodeMatrix[i, j].Top = nodeMatrix[i - 1, j];
+                            }
+                        }
+
+                        // Set right node
+                        if (j != this.width - 1)
+                        {
+                            if (nodeMatrix[i, j + 1] != null)
+                            {
+                                nodeMatrix[i, j].Right= nodeMatrix[i, j + 1];
+                            }
+                        }
+
+                        // Set bottom node
+                        if (i != this.width - 1)
+                        {
+                            if (nodeMatrix[i + 1, j] != null)
+                            {
+                                nodeMatrix[i, j].Right = nodeMatrix[i + 1, j];
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -57,8 +57,11 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Maze.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Route.cs" />
+    <Compile Include="Solution.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +114,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dfs-label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exec-time-label.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

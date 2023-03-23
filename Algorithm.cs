@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Amazeing
 {
-    public class Algorithm
+    public abstract class Algorithm
     {
         // === ATTRIBUTES ======================================================================
         private int id;
@@ -49,5 +49,8 @@ namespace Amazeing
             get { return this.desc; }
             set { this.desc = value; }
         }
+
+        // === METHODS =========================================================================
+        public abstract Solution Use(Solution prevSolution);
     }
 }

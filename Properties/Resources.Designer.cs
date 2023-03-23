@@ -113,6 +113,16 @@ namespace Amazeing.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exec_time_label {
+            get {
+                object obj = ResourceManager.GetObject("exec-time-label", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap import_file_btn {
             get {
                 object obj = ResourceManager.GetObject("import-file-btn", resourceCulture);
@@ -126,6 +136,16 @@ namespace Amazeing.Properties {
         internal static System.Drawing.Bitmap main_bg {
             get {
                 object obj = ResourceManager.GetObject("main-bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_btn {
+            get {
+                object obj = ResourceManager.GetObject("search-btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

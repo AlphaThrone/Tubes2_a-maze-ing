@@ -31,8 +31,17 @@ namespace Amazeing
             ofd.CheckPathExists = true;
             if (ofd.ShowDialog() == DialogResult.OK )
             {
-                controller.importMaze(ofd.FileName);
-                this.MazeFile.Text = ofd.SafeFileName;
+                try
+                {
+                    controller.ImportMaze(ofd.FileName);
+                    this.MazeFile.Text = ofd.SafeFileName;
+                }
+                
+                 catch (Exception err)
+                {
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show(err.Message, "Invalid file", buttons, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -61,6 +70,33 @@ namespace Amazeing
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if(controller.Maze.SourceFile == "")
+                {
+                    throw new Exception("Please import a maze file");
+                }
+                if(controller.SelectedAlgorithm == -1)
+                {
+                    throw new Exception("Please select an algorithm");
+                }
+                controller.Solve();
+                ExecTimeVal.Text = controller.Solutions[controller.SelectedAlgorithm].ExecTime.ToString() + " ms";
+            }
+            catch (Exception err)
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show(err.Message, "Cannot solve maze", buttons, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ExecTimeVal_Click(object sender, EventArgs e)
         {
 
         }

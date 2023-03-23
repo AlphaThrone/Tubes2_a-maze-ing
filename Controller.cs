@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,12 +8,13 @@ using System.Windows.Forms;
 
 namespace Amazeing
 {
-    internal class Controller
+    public class Controller
     {
         // === ATTRIBUTES ======================================================================
         private Maze maze;
         private Algorithm[] algorithms;
         private int selectedAlgorithm;
+        private Solution[] solutions;
 
         // === CONSTRUCTOR =====================================================================
         public Controller()
@@ -22,6 +24,7 @@ namespace Amazeing
             this.algorithms[0] = new Bfs();
             this.algorithms[1] = new Dfs();
             this.selectedAlgorithm = -1;
+            this.solutions = new Solution[2];
         }
 
         // === GETTER SETTER ===================================================================
@@ -33,29 +36,43 @@ namespace Amazeing
 
         public Algorithm[] Algorithms
         {
-            get { return algorithms; }
+            get { return this.algorithms; }
             set { this.algorithms = value; }
         }
 
         public int SelectedAlgorithm
         {
-            get { return selectedAlgorithm; }
-            set { selectedAlgorithm = value; }
+            get { return this.selectedAlgorithm; }
+            set { this.selectedAlgorithm = value; }
+        }
+
+        public Solution[] Solutions
+        {
+            get { return this.solutions; }
+            set { this.solutions = value; }
         }
 
         // === METHODS =========================================================================
-        public void importMaze(string file)
+        public void ImportMaze(string file)
         {
             this.maze.SourceFile = file;
-            try
-            {
-                this.maze.validate();
-            }
-            catch (Exception err)
-            {
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                MessageBox.Show(err.Message, "Invalid file", buttons, MessageBoxIcon.Error);
-            }
+            this.maze.Validate();
+            this.maze.Build();
+        }
+
+        public void Solve()
+        {
+            Solution solution = new Solution(this.selectedAlgorithm, this.maze);
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+
+
+            stopwatch.Stop();
+            solution.ExecTime = stopwatch.ElapsedMilliseconds;
+
+            this.solutions[this.selectedAlgorithm] = solution;
         }
     }
 }

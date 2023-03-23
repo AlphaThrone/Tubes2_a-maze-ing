@@ -10,5 +10,12 @@ namespace Amazeing
     {
         // === CONSTRUCTOR =====================================================================
         public Bfs() : base("BFS") { }
+
+        // === METHODS =========================================================================
+        public override Solution Use(Solution solution)
+        {
+            Solution newSolution = solution;
+            return solution;
+        }
     }
 }

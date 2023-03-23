@@ -35,7 +35,12 @@
             this.BfsBtn = new System.Windows.Forms.Button();
             this.DfsBtn = new System.Windows.Forms.Button();
             this.AlgoTitle = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SearchBtn = new System.Windows.Forms.Button();
+            this.ExecTimeLabel = new System.Windows.Forms.Button();
+            this.ExecTimeVal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AlgoTitle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // importBtn
@@ -48,7 +53,7 @@
             this.importBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.importBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.importBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.importBtn.Location = new System.Drawing.Point(940, 553);
+            this.importBtn.Location = new System.Drawing.Point(967, 553);
             this.importBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.importBtn.MaximumSize = new System.Drawing.Size(166, 75);
             this.importBtn.MinimumSize = new System.Drawing.Size(166, 75);
@@ -65,12 +70,12 @@
             this.MazeFile.Font = new System.Drawing.Font("Montserrat Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MazeFile.ForeColor = System.Drawing.Color.Yellow;
             this.MazeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MazeFile.Location = new System.Drawing.Point(746, 583);
+            this.MazeFile.Location = new System.Drawing.Point(639, 574);
             this.MazeFile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.MazeFile.MaximumSize = new System.Drawing.Size(175, 30);
-            this.MazeFile.MinimumSize = new System.Drawing.Size(175, 30);
+            this.MazeFile.MaximumSize = new System.Drawing.Size(300, 30);
+            this.MazeFile.MinimumSize = new System.Drawing.Size(300, 30);
             this.MazeFile.Name = "MazeFile";
-            this.MazeFile.Size = new System.Drawing.Size(175, 30);
+            this.MazeFile.Size = new System.Drawing.Size(300, 30);
             this.MazeFile.TabIndex = 1;
             this.MazeFile.Text = "No file";
             this.MazeFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -85,10 +90,10 @@
             this.AlgoDesc.ForeColor = System.Drawing.Color.Yellow;
             this.AlgoDesc.Location = new System.Drawing.Point(33, 260);
             this.AlgoDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.AlgoDesc.MaximumSize = new System.Drawing.Size(502, 90);
-            this.AlgoDesc.MinimumSize = new System.Drawing.Size(502, 90);
+            this.AlgoDesc.MaximumSize = new System.Drawing.Size(550, 90);
+            this.AlgoDesc.MinimumSize = new System.Drawing.Size(550, 90);
             this.AlgoDesc.Name = "AlgoDesc";
-            this.AlgoDesc.Size = new System.Drawing.Size(502, 90);
+            this.AlgoDesc.Size = new System.Drawing.Size(550, 90);
             this.AlgoDesc.TabIndex = 2;
             this.AlgoDesc.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -135,15 +140,87 @@
             // 
             // AlgoTitle
             // 
+            this.AlgoTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AlgoTitle.BackColor = System.Drawing.Color.Transparent;
             this.AlgoTitle.BackgroundImage = global::Amazeing.Properties.Resources.select_label1;
             this.AlgoTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AlgoTitle.Location = new System.Drawing.Point(37, 214);
+            this.AlgoTitle.MaximumSize = new System.Drawing.Size(282, 47);
+            this.AlgoTitle.MinimumSize = new System.Drawing.Size(282, 47);
             this.AlgoTitle.Name = "AlgoTitle";
             this.AlgoTitle.Size = new System.Drawing.Size(282, 47);
             this.AlgoTitle.TabIndex = 5;
             this.AlgoTitle.TabStop = false;
             this.AlgoTitle.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(616, 12);
+            this.dataGridView1.MaximumSize = new System.Drawing.Size(520, 520);
+            this.dataGridView1.MinimumSize = new System.Drawing.Size(520, 520);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(520, 520);
+            this.dataGridView1.TabIndex = 7;
+            // 
+            // SearchBtn
+            // 
+            this.SearchBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SearchBtn.BackgroundImage = global::Amazeing.Properties.Resources.search_btn;
+            this.SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SearchBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchBtn.FlatAppearance.BorderSize = 0;
+            this.SearchBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.SearchBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchBtn.ForeColor = System.Drawing.Color.Yellow;
+            this.SearchBtn.Location = new System.Drawing.Point(407, 353);
+            this.SearchBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.SearchBtn.MaximumSize = new System.Drawing.Size(166, 75);
+            this.SearchBtn.MinimumSize = new System.Drawing.Size(166, 75);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(166, 75);
+            this.SearchBtn.TabIndex = 8;
+            this.SearchBtn.UseVisualStyleBackColor = false;
+            this.SearchBtn.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // ExecTimeLabel
+            // 
+            this.ExecTimeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ExecTimeLabel.BackgroundImage = global::Amazeing.Properties.Resources.exec_time_label;
+            this.ExecTimeLabel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ExecTimeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExecTimeLabel.FlatAppearance.BorderSize = 0;
+            this.ExecTimeLabel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ExecTimeLabel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ExecTimeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExecTimeLabel.ForeColor = System.Drawing.Color.Yellow;
+            this.ExecTimeLabel.Location = new System.Drawing.Point(407, 562);
+            this.ExecTimeLabel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ExecTimeLabel.MaximumSize = new System.Drawing.Size(166, 75);
+            this.ExecTimeLabel.MinimumSize = new System.Drawing.Size(120, 55);
+            this.ExecTimeLabel.Name = "ExecTimeLabel";
+            this.ExecTimeLabel.Size = new System.Drawing.Size(120, 55);
+            this.ExecTimeLabel.TabIndex = 9;
+            this.ExecTimeLabel.UseVisualStyleBackColor = false;
+            // 
+            // ExecTimeVal
+            // 
+            this.ExecTimeVal.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ExecTimeVal.BackColor = System.Drawing.Color.Transparent;
+            this.ExecTimeVal.Font = new System.Drawing.Font("Montserrat Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExecTimeVal.ForeColor = System.Drawing.Color.Yellow;
+            this.ExecTimeVal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ExecTimeVal.Location = new System.Drawing.Point(549, 574);
+            this.ExecTimeVal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ExecTimeVal.MaximumSize = new System.Drawing.Size(100, 30);
+            this.ExecTimeVal.MinimumSize = new System.Drawing.Size(100, 30);
+            this.ExecTimeVal.Name = "ExecTimeVal";
+            this.ExecTimeVal.Size = new System.Drawing.Size(100, 30);
+            this.ExecTimeVal.TabIndex = 10;
+            this.ExecTimeVal.Text = "0 ms";
+            this.ExecTimeVal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ExecTimeVal.Click += new System.EventHandler(this.ExecTimeVal_Click);
             // 
             // Window
             // 
@@ -152,6 +229,10 @@
             this.BackgroundImage = global::Amazeing.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1148, 647);
+            this.Controls.Add(this.ExecTimeVal);
+            this.Controls.Add(this.ExecTimeLabel);
+            this.Controls.Add(this.SearchBtn);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.AlgoTitle);
             this.Controls.Add(this.DfsBtn);
             this.Controls.Add(this.BfsBtn);
@@ -167,6 +248,7 @@
             this.Name = "Window";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.AlgoTitle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,6 +261,10 @@
         private System.Windows.Forms.Button BfsBtn;
         private System.Windows.Forms.Button DfsBtn;
         private System.Windows.Forms.PictureBox AlgoTitle;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button SearchBtn;
+        private System.Windows.Forms.Button ExecTimeLabel;
+        private System.Windows.Forms.Label ExecTimeVal;
     }
 }
 
