@@ -18,9 +18,8 @@ namespace BFSFile
         public override Solution use(Solution solution)
         {
             //Kamus
-            Solution newSolution = solution;
             Queue<Route> nodeQueue = new Queue<Route>();
-            Route tempRoute = new Route();
+            Route tempRoute=new Route();
             Route tempRoute4=new Route();
             Route tempRoute3=new Route();
             Route tempRoute2=new Route();
@@ -28,6 +27,7 @@ namespace BFSFile
             Node tempNode = solution.getMaze().getStartingNode();
             int treasureFound=0;
             int count=0;
+            bool isClean=false;
             
             
             //Algoritma
@@ -43,28 +43,43 @@ namespace BFSFile
                 tempRoute=nodeQueue.Dequeue();
                 tempNode = tempRoute.getNodeRoute(tempRoute.getNumNodeRoute()-1);
                 Console.WriteLine(tempNode.getStatus());
-                // if(tempNode.getStatus()=="Visited"){
-                //     continue;
-                // }
+                if(tempNode.getStatus()=="Visited"){
+                    continue;
+                }
                 tempNode.setStatus("Visited");
-
+                Search(solution, tempNode, nodeQueue,tempRoute, tempRoute1, tempRoute2, tempRoute3, tempRoute4);
                 if(tempNode.getType()=="Treasure"){
-                    treasureFound++;
-                    Console.WriteLine("masok treasure");
-                    solution.getRoute().setRoute(tempRoute);
-                    // solution.getRoute().addNodeToRoute(tempNode);
-                    // tempRoute=new Route();
-                    Console.WriteLine("masok clean");
+                    if(!isClean){
+                        treasureFound++;
+                        Console.WriteLine("masok treasure");
+                        Console.WriteLine(treasureFound);
+                        solution.getRoute().setRoute(tempRoute);
+                        // solution.getRoute().addNodeToRoute(tempNode);
+                        for (int i = 0; i < tempRoute.getNumNodeRoute(); i++)
+                        {
+                            tempRoute.getNodeRoute(i).setStatus("Not visited");
+                        }
+                        tempRoute=new Route();
+                        tempRoute.addNodeToRoute(tempNode);
+                        isClean=true;
+                        Console.WriteLine("masok clean");
+                    } else {
+                        Console.WriteLine("masok udah clean");
+                        isClean=false;
+                    }
+                } else {
+                    Console.WriteLine("masok node");
                 }
                 if((treasureFound)==solution.getMaze().getNTreasure()){
-                    
+                    for (int i = 0; i < solution.getRoute().getNumNodeRoute(); i++)
+                    {
+                        solution.getRoute().getNodeRoute(i).setStatus("Visited");
+                    }
                     break;
                 }
-                Console.WriteLine("masok node");
-                Search(solution, tempNode, nodeQueue,tempRoute, tempRoute1, tempRoute2, tempRoute3, tempRoute4);
             }
             
-            return newSolution;
+            return solution;
         }
 
         public void Search(Solution solution, Node currentNode, Queue<Route> nodeQueue,Route tempRoute, Route tempRoute1, Route tempRoute2, Route tempRoute3, Route tempRoute4){
@@ -90,15 +105,6 @@ namespace BFSFile
                 solution.setVisitedNode(solution.getVisitedNode()+1);
                 
             }
-            if(currentNode.getBottomNode()!=null && currentNode.getBottomNode().getStatus()=="Not visited"){
-                tempRoute4=tempRoute;
-                tempRoute4.addNodeToRoute(currentNode.getBottomNode());
-                tempRoute4.addStepToRoute("D");
-                currentNode.getBottomNode().setStatus("Checking");
-                nodeQueue.Enqueue(tempRoute4);
-                Console.WriteLine("masok bawah");
-                solution.setVisitedNode(solution.getVisitedNode()+1);
-            }
             if(currentNode.getRightNode()!=null && currentNode.getRightNode().getStatus()=="Not visited"){
                 tempRoute3=tempRoute;
                 tempRoute3.addNodeToRoute(currentNode.getRightNode());
@@ -108,6 +114,15 @@ namespace BFSFile
                 Console.WriteLine("masok kanan");
                 solution.setVisitedNode(solution.getVisitedNode()+1);
 
+            }
+            if(currentNode.getBottomNode()!=null && currentNode.getBottomNode().getStatus()=="Not visited"){
+                tempRoute4=tempRoute;
+                tempRoute4.addNodeToRoute(currentNode.getBottomNode());
+                tempRoute4.addStepToRoute("D");
+                currentNode.getBottomNode().setStatus("Checking");
+                nodeQueue.Enqueue(tempRoute4);
+                Console.WriteLine("masok bawah");
+                solution.setVisitedNode(solution.getVisitedNode()+1);
             }
         }
     }
