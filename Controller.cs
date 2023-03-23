@@ -11,11 +11,17 @@ namespace Amazeing
     {
         // === ATTRIBUTES ======================================================================
         private Maze maze;
+        private Algorithm[] algorithms;
+        private int selectedAlgorithm;
 
         // === CONSTRUCTOR =====================================================================
         public Controller()
         {
             this.maze = new Maze();
+            this.algorithms = new Algorithm[2];
+            this.algorithms[0] = new Bfs();
+            this.algorithms[1] = new Dfs();
+            this.selectedAlgorithm = -1;
         }
 
         // === GETTER SETTER ===================================================================
@@ -23,6 +29,18 @@ namespace Amazeing
         {
             get { return this.maze; }
             set { this.maze = value; }
+        }
+
+        public Algorithm[] Algorithms
+        {
+            get { return algorithms; }
+            set { this.algorithms = value; }
+        }
+
+        public int SelectedAlgorithm
+        {
+            get { return selectedAlgorithm; }
+            set { selectedAlgorithm = value; }
         }
 
         // === METHODS =========================================================================

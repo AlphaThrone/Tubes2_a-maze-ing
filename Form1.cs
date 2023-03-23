@@ -40,5 +40,29 @@ namespace Amazeing
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            controller.SelectedAlgorithm = 0;
+            this.AlgoDesc.Text = controller.Algorithms[controller.SelectedAlgorithm].Desc;
+            this.AlgoTitle.BackgroundImage = global::Amazeing.Properties.Resources.bfs_label;
+        }
+
+        private void DfsBtn_Click(object sender, EventArgs e)
+        {
+            controller.SelectedAlgorithm = 1;
+            this.AlgoDesc.Text = controller.Algorithms[controller.SelectedAlgorithm].Desc;
+            this.AlgoTitle.BackgroundImage = global::Amazeing.Properties.Resources.dfs_label;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

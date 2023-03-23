@@ -115,18 +115,6 @@ namespace Amazeing
                     
                 }
             }
-
-            // 5. Display matrix
-            Console.WriteLine(this.depth);
-            Console.WriteLine(this.width);
-            for (int i = 0; i < this.depth; i++)
-            {
-                for(int j = 0; j < this.width; j++)
-                {
-                    Console.Write(this.matrix[i, j]);
-                }
-                Console.WriteLine();
-            }
         }
 
     }
