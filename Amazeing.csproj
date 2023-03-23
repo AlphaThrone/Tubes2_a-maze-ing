@@ -121,5 +121,14 @@
   <ItemGroup>
     <None Include="Resources\exec-time-label.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nodes-label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\steps-label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\route-label.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

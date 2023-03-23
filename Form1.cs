@@ -13,11 +13,15 @@ namespace Amazeing
     public partial class Window : Form
     {
         private Controller controller;
+        private System.Media.SoundPlayer soundPlayer;
 
         public Window()
         {
             InitializeComponent();
             controller = new Controller();
+            soundPlayer = new System.Media.SoundPlayer();
+         soundPlayer.SoundLocation = "../../Resources/bg-soundtrack.wav";
+            soundPlayer.PlayLooping();
         }
 
         private void importBtn_Click(object sender, EventArgs e)
@@ -35,6 +39,10 @@ namespace Amazeing
                 {
                     controller.ImportMaze(ofd.FileName);
                     this.MazeFile.Text = ofd.SafeFileName;
+                    ExecTimeVal.Text = "0 ms";
+                    NodesVal.Text = "0";
+                    StepsVal.Text = "0";
+                    RouteVal.Text = "-";
                 }
                 
                  catch (Exception err)
@@ -88,6 +96,9 @@ namespace Amazeing
                 }
                 controller.Solve();
                 ExecTimeVal.Text = controller.Solutions[controller.SelectedAlgorithm].ExecTime.ToString() + " ms";
+                NodesVal.Text = controller.Solutions[controller.SelectedAlgorithm].VisitedNode.ToString();
+                StepsVal.Text = controller.Solutions[controller.SelectedAlgorithm].Route.Steps.ToString();
+                RouteVal.Text = controller.Solutions[controller.SelectedAlgorithm].Route.RouteStr;
             }
             catch (Exception err)
             {
@@ -97,6 +108,21 @@ namespace Amazeing
         }
 
         private void ExecTimeVal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RouteVal_Click(object sender, EventArgs e)
         {
 
         }

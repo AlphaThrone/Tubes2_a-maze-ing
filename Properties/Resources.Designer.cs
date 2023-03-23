@@ -143,6 +143,26 @@ namespace Amazeing.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nodes_label {
+            get {
+                object obj = ResourceManager.GetObject("nodes-label", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap route_label {
+            get {
+                object obj = ResourceManager.GetObject("route-label", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap search_btn {
             get {
                 object obj = ResourceManager.GetObject("search-btn", resourceCulture);
@@ -166,6 +186,16 @@ namespace Amazeing.Properties {
         internal static System.Drawing.Bitmap select_label1 {
             get {
                 object obj = ResourceManager.GetObject("select-label1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap steps_label {
+            get {
+                object obj = ResourceManager.GetObject("steps-label", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

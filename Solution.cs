@@ -19,7 +19,7 @@ namespace Amazeing
         // === CONSTRUCTOR =====================================================================
         public Solution(int id, Maze maze)
         {
-            this.maze = maze;
+            this.maze = new Maze(maze);
 
             if (id == 0)
             {
@@ -47,6 +47,24 @@ namespace Amazeing
         {
             get { return this.execTime; }
             set { this.execTime = value; }
+        }
+
+        public int VisitedNode
+        {
+            get { return this.visitedNode; }
+            set { this.visitedNode = value; }
+        }
+
+        public Route Route
+        {
+            get { return this.route; }
+            set { this.route = value; }
+        }
+
+        public int TreasureFound
+        {
+            get { return this.treasureFound; }
+            set { this.treasureFound = value; }
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,10 +48,34 @@ namespace Amazeing
         }
 
         // === GETTER SETTER ===================================================================
+        public int Id
+        {
+            get { return this.id; }
+            set { this.id = value; }    
+        }
+
+        public string Type
+        {
+            get { return this.type; }
+            set { this.type = value; }
+        }
+
         public string Status
         {
             get { return this.status; }
             set { this.status = value; }
+        }
+
+        public int X
+        {
+            get { return this.posX; }
+            set { this.posX = value; }
+        }
+
+        public int Y
+        {
+            get { return this.posY; }
+            set { this.posY = value; }
         }
 
         public Node Left
@@ -74,6 +100,28 @@ namespace Amazeing
         {
             get { return this.bottomNode; }
             set { this.bottomNode = value; }
+        }
+
+        // === METHODS =========================================================================
+        public bool IsExplorable()
+        {
+            if (this.Left != null && this.Left.Status == "Not visited")
+            {
+                return true;
+            }
+            if (this.Top != null && this.Top.Status == "Not visited")
+            {
+                return true;
+            }
+            if (this.Right != null && this.Right.Status == "Not visited")
+            {
+                return true;
+            }
+            if (this.Bottom != null && this.Bottom.Status == "Not visited")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

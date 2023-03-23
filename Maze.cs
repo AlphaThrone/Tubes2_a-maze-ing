@@ -15,8 +15,8 @@ namespace Amazeing
         private char[,] matrix;
         private int depth;
         private int width;
-        public Node startingNode;
-        public int nTreasure;
+        private Node startingNode;
+        private int nTreasure;
 
         // === CONSTRUCTOR =====================================================================
         public Maze()
@@ -25,6 +25,13 @@ namespace Amazeing
             this.depth = 0;
             this.width = 0;
             this.nTreasure = 0;
+        }
+
+        public Maze(Maze other)
+        {
+            this.sourceFile = other.sourceFile;
+            this.Validate();
+            this.Build();
         }
 
         // === GETTER SETTER ===================================================================
@@ -43,6 +50,18 @@ namespace Amazeing
         {
             get { return this.width; }
             set { this.width = value; }
+        }
+
+        public Node StartingNode
+        {
+            get { return this.startingNode; }
+            set { this.startingNode = value; }
+        }
+
+        public int NTreasure
+        {
+            get { return this.nTreasure; }
+            set { this.nTreasure = value; }
         }
 
         // === METHODS =========================================================================
@@ -181,20 +200,33 @@ namespace Amazeing
                         {
                             if (nodeMatrix[i, j + 1] != null)
                             {
-                                nodeMatrix[i, j].Right= nodeMatrix[i, j + 1];
+                                nodeMatrix[i, j].Right = nodeMatrix[i, j + 1];
                             }
                         }
 
                         // Set bottom node
-                        if (i != this.width - 1)
+                        if (i != this.depth - 1)
                         {
                             if (nodeMatrix[i + 1, j] != null)
                             {
-                                nodeMatrix[i, j].Right = nodeMatrix[i + 1, j];
+                                nodeMatrix[i, j].Bottom = nodeMatrix[i + 1, j];
                             }
                         }
                     }
                 }
+            }
+
+            // 3. Display matrix
+            for(int i = 0; i < this.depth; i++)
+            {
+                for(int j = 0; j < this.width; j++)
+                {
+                    if (nodeMatrix[i,j] != null)
+                    {
+                        Console.Write(nodeMatrix[i, j].Type + " ");
+                    }
+                }
+                Console.WriteLine();
             }
         }
     }

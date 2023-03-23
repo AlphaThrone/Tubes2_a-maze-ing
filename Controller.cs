@@ -62,17 +62,15 @@ namespace Amazeing
 
         public void Solve()
         {
-            Solution solution = new Solution(this.selectedAlgorithm, this.maze);
+            this.solutions[this.selectedAlgorithm] = new Solution(this.selectedAlgorithm, this.maze);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-
+            this.solutions[this.selectedAlgorithm] = this.algorithms[this.selectedAlgorithm].Use(this.solutions[this.selectedAlgorithm]);
 
             stopwatch.Stop();
-            solution.ExecTime = stopwatch.ElapsedMilliseconds;
-
-            this.solutions[this.selectedAlgorithm] = solution;
+            this.solutions[this.selectedAlgorithm].ExecTime = stopwatch.ElapsedMilliseconds;
         }
     }
 }
