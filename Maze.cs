@@ -41,6 +41,12 @@ namespace Amazeing
             set { this.sourceFile = value; }
         }
 
+        public char[,] Matrix
+        {
+            get { return this.matrix; }
+            set { this.matrix = value; }
+        }
+
         public int Depth
         {
             get { return this.depth; }

@@ -46,6 +46,56 @@ namespace Amazeing
                     NodesVal.Text = "0";
                     StepsVal.Text = "0";
                     RouteVal.Text = "-";
+
+                    // Maze Display Styling
+                    MazeGrid.RowHeadersVisible = false;
+                    MazeGrid.ColumnHeadersVisible = false;
+                    MazeGrid.Enabled = false;
+                    MazeGrid.ReadOnly = true;
+                    MazeGrid.AllowUserToAddRows = false;
+                    MazeGrid.AllowUserToDeleteRows = false;
+                    MazeGrid.AllowUserToResizeColumns = false;
+                    MazeGrid.AllowUserToResizeRows = false;
+                    MazeGrid.ScrollBars = ScrollBars.None;
+                    MazeGrid.MultiSelect = false;
+                    MazeGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    MazeGrid.CellBorderStyle = DataGridViewCellBorderStyle.None;
+
+                    // Initialize Maze Display Data
+                    MazeGrid.ColumnCount = controller.Maze.Width;
+                    MazeGrid.RowCount = controller.Maze.Depth;
+
+                    int rowHeight = MazeGrid.ClientSize.Height / MazeGrid.RowCount;
+                    for(int i = 0; i < MazeGrid.RowCount; i++)
+                    {
+                        MazeGrid.Rows[i].Height = rowHeight;
+                    }
+
+                    MazeGrid.CurrentCell = null;
+
+                    // Initialize Maze Display Colours
+                    for (int i = 0; i < MazeGrid.RowCount; i++)
+                    {
+                        for (int j = 0; j <  MazeGrid.ColumnCount; j++)
+                        {
+                            if (controller.Maze.Matrix[i, j] == 'X')
+                            {
+                                MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.Black;
+                            }
+                            else if (controller.Maze.Matrix[i,j] == 'R')
+                            {
+                                MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.SaddleBrown;
+                            }
+                            else if (controller.Maze.Matrix[i, j] == 'T')
+                            {
+                                MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.Gold;
+                            }
+                            else if (controller.Maze.Matrix[i, j] == 'K')
+                            {
+                                MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.DeepSkyBlue;
+                            }
+                        }
+                    }
                 }
                 
                  catch (Exception err)
@@ -85,7 +135,7 @@ namespace Amazeing
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private async void button1_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -102,6 +152,44 @@ namespace Amazeing
                 NodesVal.Text = controller.Solutions[controller.SelectedAlgorithm].VisitedNode.ToString();
                 StepsVal.Text = controller.Solutions[controller.SelectedAlgorithm].Route.Steps.ToString();
                 RouteVal.Text = controller.Solutions[controller.SelectedAlgorithm].Route.RouteStr;
+
+                for(int i = 0; i < 100; i++)
+                {
+                    await Task.Delay(500);
+
+                    if (controller.Solutions[controller.SelectedAlgorithm].Route.RouteGraph[i] == null)
+                    {
+                        break;
+                    }
+
+                    MazeGrid.Rows[controller.Solutions[controller.SelectedAlgorithm].Route.RouteGraph[i].X].Cells[controller.Solutions[controller.SelectedAlgorithm].Route.RouteGraph[i].Y].Style.BackColor = Color.LightSkyBlue;
+                    if (i != 0)
+                    {
+                        MazeGrid.Rows[controller.Solutions[controller.SelectedAlgorithm].Route.RouteGraph[i - 1].X].Cells[controller.Solutions[controller.SelectedAlgorithm].Route.RouteGraph[i - 1].Y].Style.BackColor = Color.LightSalmon;
+                    }
+                }
+
+                for (int i = controller.Solutions[controller.SelectedAlgorithm].Route.NSelectedRoute - 1; i > -1; i--)
+                {
+                    Console.WriteLine(i);
+                    await Task.Delay(250);
+
+                    if (controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i] != null)
+                    { 
+                        if(MazeGrid.Rows[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].X].Cells[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].Y].Style.BackColor == Color.PaleGreen)
+                        {
+                            MazeGrid.Rows[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].X].Cells[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].Y].Style.BackColor = Color.YellowGreen;
+                        }
+                        else if (MazeGrid.Rows[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].X].Cells[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].Y].Style.BackColor == Color.YellowGreen)
+                        {
+                            MazeGrid.Rows[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].X].Cells[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].Y].Style.BackColor = Color.DarkSeaGreen;
+                        }
+                        else
+                        {
+                            MazeGrid.Rows[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].X].Cells[controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i].Y].Style.BackColor = Color.PaleGreen;
+                        }                        
+                    }
+                }
             }
             catch (Exception err)
             {

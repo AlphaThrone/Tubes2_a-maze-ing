@@ -35,7 +35,7 @@
             this.BfsBtn = new System.Windows.Forms.Button();
             this.DfsBtn = new System.Windows.Forms.Button();
             this.AlgoTitle = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MazeGrid = new System.Windows.Forms.DataGridView();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.ExecTimeLabel = new System.Windows.Forms.Button();
             this.ExecTimeVal = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.RouteVal = new System.Windows.Forms.Label();
             this.SoundBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AlgoTitle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MazeGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // importBtn
@@ -160,16 +160,16 @@
             this.AlgoTitle.TabStop = false;
             this.AlgoTitle.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // dataGridView1
+            // MazeGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(616, 12);
-            this.dataGridView1.MaximumSize = new System.Drawing.Size(520, 520);
-            this.dataGridView1.MinimumSize = new System.Drawing.Size(520, 520);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(520, 520);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.MazeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MazeGrid.Location = new System.Drawing.Point(616, 12);
+            this.MazeGrid.MaximumSize = new System.Drawing.Size(520, 520);
+            this.MazeGrid.MinimumSize = new System.Drawing.Size(520, 520);
+            this.MazeGrid.Name = "MazeGrid";
+            this.MazeGrid.Size = new System.Drawing.Size(520, 520);
+            this.MazeGrid.TabIndex = 7;
+            this.MazeGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // SearchBtn
             // 
@@ -383,7 +383,7 @@
             this.Controls.Add(this.ExecTimeVal);
             this.Controls.Add(this.ExecTimeLabel);
             this.Controls.Add(this.SearchBtn);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.MazeGrid);
             this.Controls.Add(this.AlgoTitle);
             this.Controls.Add(this.DfsBtn);
             this.Controls.Add(this.BfsBtn);
@@ -399,7 +399,7 @@
             this.Name = "Window";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.AlgoTitle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MazeGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -412,7 +412,7 @@
         private System.Windows.Forms.Button BfsBtn;
         private System.Windows.Forms.Button DfsBtn;
         private System.Windows.Forms.PictureBox AlgoTitle;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView MazeGrid;
         private System.Windows.Forms.Button SearchBtn;
         private System.Windows.Forms.Button ExecTimeLabel;
         private System.Windows.Forms.Label ExecTimeVal;

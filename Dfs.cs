@@ -66,6 +66,7 @@ namespace Amazeing
                 Node currentNode = GetTop();
                 // Console.WriteLine(GetTop().Id + " ( " + GetTop().X + "," + GetTop().Y + " )");
                 newSolution.Route.AddNodeToRoute(GetTop());
+                solution.Route.AddNodeToSelectedRoute(GetTop());
 
                 // 2.2. Check if current node is visited
                 if (currentNode.Status != "Visited")
@@ -109,21 +110,24 @@ namespace Amazeing
                 // 2.6 If current node is a dead end
                 else
                 {
+                    
                     bool isKeepTrack = false;
                     while (!GetTop().IsExplorable())
                     {
                         if (GetTop().Type != "Treasure" && !isKeepTrack)
                         {
                             Pop();
-                            solution.Route.RemoveNodeFromRoute();
+                            newSolution.Route.RemoveNodeFromSelectedRoute();
                         }
                         else
                         {
                             isKeepTrack = true;
                             Pop();
-                            solution.Route.AddNodeToRoute(GetTop());
+                            newSolution.Route.AddNodeToSelectedRoute(GetTop());
                         }
+                        newSolution.Route.AddNodeToRoute(GetTop());
                     }
+                    
                 }
 
                 // 2.7 Update current node state
@@ -131,8 +135,8 @@ namespace Amazeing
             }
 
             // 3. Initialize steps
-            solution.Route.InitializeStep();
-            Console.WriteLine(solution.Route.RouteStr);
+            newSolution.Route.InitializeStep();
+            Console.WriteLine(newSolution.Route.RouteStr);
 
             return newSolution;
         }
