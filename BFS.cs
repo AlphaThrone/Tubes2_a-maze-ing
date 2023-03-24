@@ -12,47 +12,57 @@ namespace BFSFile
     {
         // === ATTRIBUTES ======================================================================
         private Queue<Node> nodeQueue;
+        private int treasureAround;
         // === CONSTRUCTOR =====================================================================
         public BFS() : base("BFS") { }
 
         // === METHODS =========================================================================
         public override Solution use(Solution solution)
         {
-            bool cleared=false;
+            bool clearing=false;
             this.nodeQueue = new Queue<Node>();
             Solution newSolution = solution;
+            // newSolution.getMaze().getStartingNode().setPreviousNode(null);
             Node currentNode=newSolution.getMaze().getStartingNode();
+            Route tempRoute=new Route();
             List<Node> treasureFound = new List<Node>();
             List<Node> allTreasures = getAllTreasure(solution);
 
             this.nodeQueue.Enqueue(solution.getMaze().getStartingNode());
             while (true){
+                Console.WriteLine("Queue: "+nodeQueue.Count());
                 currentNode = this.nodeQueue.Dequeue();
-                newSolution.getRoute().addNodeToRoute(currentNode);
+                tempRoute.addNodeToRoute(currentNode);
                 if(currentNode.getStatus() != "Visited"){
                     newSolution.setVisitedNode(newSolution.getVisitedNode()+1);
                 }
+
                 if(currentNode.getType()=="Treasure" && currentNode.getStatus()!= "Visited" && !isAlreadyFound(currentNode, treasureFound)){
                     newSolution.setTreasureFound(newSolution.getTreasureFound() + 1);
                     treasureFound.Add(currentNode);
                     
                     Console.WriteLine("TREASURE FOUND: " + newSolution.getTreasureFound() + " id: " + currentNode.getPosX() + "," + currentNode.getPosY());
-                    for (int i = 0; i < newSolution.getRoute().getNumNodeRoute(); i++)
+                    
+                    tempRoute=searchPath(currentNode, newSolution);
+                    for (int i = 0; i < tempRoute.getNumNodeRoute(); i++)
                     {
-                        newSolution.getRoute().getNodeRoute(i).setStatus("Not visited");
+                        solution.getRoute().addNodeToRoute(tempRoute.getNodeRoute(i));
                     }
+                    resetStatus(newSolution);
+                    Console.WriteLine("treasure around: "+treasureAround);
+                    
                     nodeQueue.Clear();
+                    // nodeQueue.Enqueue(currentNode);
                     
                     if (isAllTreasuresFound(treasureFound, allTreasures))
                     {
-                        for (int i = 0; i < newSolution.getRoute().getNumNodeRoute(); i++)
+                        for (int i = 0; i < solution.getRoute().getNumNodeRoute(); i++)
                         {
-                            newSolution.getRoute().getNodeRoute(i).setStatus("Visited");
+                            solution.getRoute().getNodeRoute(i).setStatus("Visited");
                         }
                         break;
                     }
                 }
-                currentNode.setStatus("Checking");
 
                 search(newSolution, currentNode);
 
@@ -62,28 +72,32 @@ namespace BFSFile
 
             }
             
-            return newSolution;
+            return solution;
         }
 
         public void search(Solution solution, Node currentNode){
-
+            Console.Write("searchnode: ");
             currentNode.printNode();
+            currentNode.setStatus("Checking");
             if(currentNode.getLeftNode()!=null && currentNode.getLeftNode().getStatus()=="Not visited" && !nodeQueue.Contains(currentNode.getLeftNode())){
+                currentNode.getLeftNode().setPreviousNode(currentNode);
                 this.nodeQueue.Enqueue(currentNode.getLeftNode());
-                solution.setVisitedNode(solution.getVisitedNode()+1);
             }
             if(currentNode.getTopNode()!=null && currentNode.getTopNode().getStatus()=="Not visited" && !nodeQueue.Contains(currentNode.getTopNode())){
+                currentNode.getTopNode().setPreviousNode(currentNode);
                 this.nodeQueue.Enqueue(currentNode.getTopNode());
-                solution.setVisitedNode(solution.getVisitedNode()+1);
+                
                 
             }
             if(currentNode.getRightNode()!=null && currentNode.getRightNode().getStatus()=="Not visited" && !nodeQueue.Contains(currentNode.getRightNode())){
+                currentNode.getRightNode().setPreviousNode(currentNode);
                 this.nodeQueue.Enqueue(currentNode.getRightNode());
-                solution.setVisitedNode(solution.getVisitedNode()+1);
+                
             }
             if(currentNode.getBottomNode()!=null && currentNode.getBottomNode().getStatus()=="Not visited" && !nodeQueue.Contains(currentNode.getBottomNode())){
+                currentNode.getBottomNode().setPreviousNode(currentNode);
                 this.nodeQueue.Enqueue(currentNode.getBottomNode());
-                solution.setVisitedNode(solution.getVisitedNode()+1);
+                
             }
         }
 
@@ -125,6 +139,51 @@ namespace BFSFile
                 }
             }
             return false;
+        }
+
+        public void resetStatus(Solution solution){
+            for (int i = 0; i < solution.getMaze().getMazeWidth(); i++)
+            {
+                for (int j = 0; j < solution.getMaze().getMazeDepth(); j++)
+                {
+                    solution.getMaze().getMatrix()[i,j]?.setStatus("Not visited");
+                }
+            }
+        }
+
+        public void resetPreviousNode(Solution solution){
+            for (int i = 0; i < solution.getMaze().getMazeWidth(); i++)
+            {
+                for (int j = 0; j < solution.getMaze().getMazeDepth(); j++)
+                {
+                    solution.getMaze().getMatrix()[i,j]?.setPreviousNode(null);
+                }
+            }
+        }
+
+        public Route searchPath(Node currentNode, Solution solution){
+            Stack<Node> pathway = new Stack<Node>();
+            Route tempRoute = new Route();
+            Node tempNode=currentNode;
+            pathway.Push(tempNode);
+            while(true){
+                if(tempNode.getPreviousNode()==null || tempNode.getPreviousNode().getType()=="Treasure"){
+                    break;
+                } else {
+                    Console.Write("pathNode: ");
+                    tempNode.printNode();
+                    pathway.Push(tempNode.getPreviousNode());
+                    tempNode=tempNode.getPreviousNode();
+                }
+            }
+            
+            while (pathway.Count()!=0)
+            {
+                Console.WriteLine(pathway.Count());
+                currentNode.printNode();
+                tempRoute.addNodeToRoute(pathway.Pop());    
+            }
+            return tempRoute;
         }
     }
 }

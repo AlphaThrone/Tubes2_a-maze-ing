@@ -14,6 +14,7 @@ namespace NodeFile
         private Node? topNode;
         private Node? rightNode;
         private Node? bottomNode;
+        private Node? previousNode;
         private static int numOfNode = 0;
 
         // === CONSTRUCTOR =====================================================================
@@ -87,6 +88,13 @@ namespace NodeFile
         public Node getBottomNode()
         {
             return this.bottomNode;
+        }
+        public void setPreviousNode(Node previousNode)
+        {
+            this.previousNode = previousNode;
+        }
+        public Node? getPreviousNode(){
+            return this.previousNode;
         }
 
         public string getType()
