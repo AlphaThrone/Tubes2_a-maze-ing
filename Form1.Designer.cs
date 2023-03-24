@@ -388,7 +388,7 @@
             this.SpeedInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SpeedInput.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SpeedInput.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.SpeedInput.Location = new System.Drawing.Point(616, 550);
+            this.SpeedInput.Location = new System.Drawing.Point(616, 554);
             this.SpeedInput.MaximumSize = new System.Drawing.Size(169, 30);
             this.SpeedInput.MinimumSize = new System.Drawing.Size(169, 30);
             this.SpeedInput.Name = "SpeedInput";

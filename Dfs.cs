@@ -17,7 +17,7 @@ namespace Amazeing
         // === METHODS =========================================================================
         public void Push(Node newNode)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 400; i++)
             {
                 if (this.nodeStack[i] == null)
                 {
@@ -29,7 +29,7 @@ namespace Amazeing
 
         public void Pop()
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 400; i++)
             {
                 if (this.nodeStack[i] == null)
                 {
@@ -41,7 +41,7 @@ namespace Amazeing
 
         public Node GetTop()
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 400; i++)
             {
                 if (this.nodeStack[i] == null)
                 {

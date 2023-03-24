@@ -28,6 +28,60 @@ namespace Amazeing
             soundPlayer.PlayLooping();
             visualizerSpeed = 500;
             SpeedInput.Text = visualizerSpeed.ToString();
+            SpeedSlider.Value = visualizerSpeed / 100;
+        }
+
+        private void resetMazeDisplay()
+        {
+            // Maze Display Styling
+            MazeGrid.RowHeadersVisible = false;
+            MazeGrid.ColumnHeadersVisible = false;
+            MazeGrid.Enabled = false;
+            MazeGrid.ReadOnly = true;
+            MazeGrid.AllowUserToAddRows = false;
+            MazeGrid.AllowUserToDeleteRows = false;
+            MazeGrid.AllowUserToResizeColumns = false;
+            MazeGrid.AllowUserToResizeRows = false;
+            MazeGrid.ScrollBars = ScrollBars.None;
+            MazeGrid.MultiSelect = false;
+            MazeGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            MazeGrid.CellBorderStyle = DataGridViewCellBorderStyle.None;
+
+            // Initialize Maze Display Data
+            MazeGrid.ColumnCount = controller.Maze.Width;
+            MazeGrid.RowCount = controller.Maze.Depth;
+
+            int rowHeight = MazeGrid.ClientSize.Height / MazeGrid.RowCount;
+            for (int i = 0; i < MazeGrid.RowCount; i++)
+            {
+                MazeGrid.Rows[i].Height = rowHeight;
+            }
+
+            MazeGrid.CurrentCell = null;
+
+            // Initialize Maze Display Colours
+            for (int i = 0; i < MazeGrid.RowCount; i++)
+            {
+                for (int j = 0; j < MazeGrid.ColumnCount; j++)
+                {
+                    if (controller.Maze.Matrix[i, j] == 'X')
+                    {
+                        MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.Black;
+                    }
+                    else if (controller.Maze.Matrix[i, j] == 'R')
+                    {
+                        MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.SaddleBrown;
+                    }
+                    else if (controller.Maze.Matrix[i, j] == 'T')
+                    {
+                        MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.Gold;
+                    }
+                    else if (controller.Maze.Matrix[i, j] == 'K')
+                    {
+                        MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.DeepSkyBlue;
+                    }
+                }
+            }
         }
 
         private void importBtn_Click(object sender, EventArgs e)
@@ -49,56 +103,7 @@ namespace Amazeing
                     NodesVal.Text = "0";
                     StepsVal.Text = "0";
                     RouteVal.Text = "-";
-
-                    // Maze Display Styling
-                    MazeGrid.RowHeadersVisible = false;
-                    MazeGrid.ColumnHeadersVisible = false;
-                    MazeGrid.Enabled = false;
-                    MazeGrid.ReadOnly = true;
-                    MazeGrid.AllowUserToAddRows = false;
-                    MazeGrid.AllowUserToDeleteRows = false;
-                    MazeGrid.AllowUserToResizeColumns = false;
-                    MazeGrid.AllowUserToResizeRows = false;
-                    MazeGrid.ScrollBars = ScrollBars.None;
-                    MazeGrid.MultiSelect = false;
-                    MazeGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    MazeGrid.CellBorderStyle = DataGridViewCellBorderStyle.None;
-
-                    // Initialize Maze Display Data
-                    MazeGrid.ColumnCount = controller.Maze.Width;
-                    MazeGrid.RowCount = controller.Maze.Depth;
-
-                    int rowHeight = MazeGrid.ClientSize.Height / MazeGrid.RowCount;
-                    for(int i = 0; i < MazeGrid.RowCount; i++)
-                    {
-                        MazeGrid.Rows[i].Height = rowHeight;
-                    }
-
-                    MazeGrid.CurrentCell = null;
-
-                    // Initialize Maze Display Colours
-                    for (int i = 0; i < MazeGrid.RowCount; i++)
-                    {
-                        for (int j = 0; j <  MazeGrid.ColumnCount; j++)
-                        {
-                            if (controller.Maze.Matrix[i, j] == 'X')
-                            {
-                                MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.Black;
-                            }
-                            else if (controller.Maze.Matrix[i,j] == 'R')
-                            {
-                                MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.SaddleBrown;
-                            }
-                            else if (controller.Maze.Matrix[i, j] == 'T')
-                            {
-                                MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.Gold;
-                            }
-                            else if (controller.Maze.Matrix[i, j] == 'K')
-                            {
-                                MazeGrid.Rows[i].Cells[j].Style.BackColor = Color.DeepSkyBlue;
-                            }
-                        }
-                    }
+                    resetMazeDisplay();
                 }
                 
                  catch (Exception err)
@@ -150,13 +155,14 @@ namespace Amazeing
                 {
                     throw new Exception("Please select an algorithm");
                 }
+                resetMazeDisplay();
                 controller.Solve();
                 ExecTimeVal.Text = controller.Solutions[controller.SelectedAlgorithm].ExecTime.ToString() + " ms";
                 NodesVal.Text = controller.Solutions[controller.SelectedAlgorithm].VisitedNode.ToString();
                 StepsVal.Text = controller.Solutions[controller.SelectedAlgorithm].Route.Steps.ToString();
                 RouteVal.Text = controller.Solutions[controller.SelectedAlgorithm].Route.RouteStr;
 
-                for(int i = 0; i < 100; i++)
+                for(int i = 0; i < 400; i++)
                 {
                     await Task.Delay(visualizerSpeed);
 
@@ -245,11 +251,20 @@ namespace Amazeing
 
         private void SpeedInput_TextChanged(object sender, EventArgs e)
         {
-            if(SpeedInput.Text != "" && SpeedInput.Text.Length < 5)
+            if(SpeedInput.Text != "")
             {
-                visualizerSpeed = Convert.ToInt32(SpeedInput.Text);
+                int newSpeed = Convert.ToInt32(SpeedInput.Text);
+                if (newSpeed >= 0 && newSpeed <= 1000)
+                {
+                    visualizerSpeed = newSpeed;
+                }
+                else
+                {
+                    visualizerSpeed = 500;
+                }
+                SpeedInput.Text = visualizerSpeed.ToString();
                 SpeedSlider.Value = visualizerSpeed / 100;
-            }
+            }            
         }
 
         private void SpeedSlider_Scroll(object sender, EventArgs e)

@@ -20,10 +20,10 @@ namespace Amazeing
         // === CONSTRUCTOR =====================================================================
         public Route()
         {
-            this.routeGraph = new Node[100];
-            this.selectedRouteGraph = new Node[100];
+            this.routeGraph = new Node[400];
+            this.selectedRouteGraph = new Node[400];
             this.nSelectedRoute = 0;
-            this.routeSteps = new string[100];
+            this.routeSteps = new string[400];
             this.routeStr = "-";
             this.nSteps = 0;
         }
@@ -62,7 +62,7 @@ namespace Amazeing
         // === METHODS =========================================================================
         public void AddNodeToRoute(Node newNode)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 400; i++)
             {
                 if (routeGraph[i] == null)
                 {
@@ -84,7 +84,7 @@ namespace Amazeing
 
         public void AddNodeToSelectedRoute(Node newNode)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 400; i++)
             {
                 if (selectedRouteGraph[i] == null)
                 {
@@ -107,7 +107,7 @@ namespace Amazeing
 
         public void RemoveNodeFromSelectedRoute()
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 400; i++)
             {
                 if (selectedRouteGraph[i] == null)
                 {
@@ -120,7 +120,7 @@ namespace Amazeing
 
         public void AddStepToRoute(string newStep)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 400; i++)
             {
                 if (routeSteps[i] == null)
                 {
@@ -134,7 +134,7 @@ namespace Amazeing
         public void InitializeStep()
         {
             this.routeStr = "";
-            for (int i = 1; i < 100; i++)
+            for (int i = 1; i < 400; i++)
             {
                 if (this.selectedRouteGraph[i] == null)
                 {
