@@ -21,7 +21,6 @@ namespace BFSFile
             bool clearing=false;
             this.nodeQueue = new Queue<Node>();
             Solution newSolution = solution;
-            // newSolution.getMaze().getStartingNode().setPreviousNode(null);
             Node currentNode=newSolution.getMaze().getStartingNode();
             Route tempRoute=new Route();
             List<Node> treasureFound = new List<Node>();
@@ -29,7 +28,6 @@ namespace BFSFile
 
             this.nodeQueue.Enqueue(solution.getMaze().getStartingNode());
             while (true){
-                Console.WriteLine("Queue: "+nodeQueue.Count());
                 currentNode = this.nodeQueue.Dequeue();
                 tempRoute.addNodeToRoute(currentNode);
                 if(currentNode.getStatus() != "Visited"){
@@ -73,8 +71,6 @@ namespace BFSFile
         }
 
         public void search(Solution solution, Node currentNode){
-            Console.Write("searchnode: ");
-            currentNode.printNode();
             currentNode.setStatus("Checking");
             if(currentNode.getLeftNode()!=null && currentNode.getLeftNode().getStatus()=="Not visited" && !nodeQueue.Contains(currentNode.getLeftNode())){
                 currentNode.getLeftNode().setPreviousNode(currentNode);
@@ -83,8 +79,6 @@ namespace BFSFile
             if(currentNode.getTopNode()!=null && currentNode.getTopNode().getStatus()=="Not visited" && !nodeQueue.Contains(currentNode.getTopNode())){
                 currentNode.getTopNode().setPreviousNode(currentNode);
                 this.nodeQueue.Enqueue(currentNode.getTopNode());
-                
-                
             }
             if(currentNode.getRightNode()!=null && currentNode.getRightNode().getStatus()=="Not visited" && !nodeQueue.Contains(currentNode.getRightNode())){
                 currentNode.getRightNode().setPreviousNode(currentNode);
@@ -167,8 +161,6 @@ namespace BFSFile
                 if(tempNode.getPreviousNode()==null ){
                     break;
                 } else {
-                    Console.Write("pathNode: ");
-                    tempNode.printNode();
                     pathway.Push(tempNode.getPreviousNode());
                     tempNode=tempNode.getPreviousNode();
                 }
@@ -176,8 +168,6 @@ namespace BFSFile
             
             while (pathway.Count()!=0)
             {
-                Console.WriteLine(pathway.Count());
-                currentNode.printNode();
                 tempRoute.addNodeToRoute(pathway.Pop());    
             }
             return tempRoute;
