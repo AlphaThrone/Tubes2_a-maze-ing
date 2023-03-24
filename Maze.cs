@@ -225,6 +225,22 @@ namespace Amazeing
                                 nodeMatrix[i, j].Bottom = nodeMatrix[i + 1, j];
                             }
                         }
+
+                        // Isolation validation
+                        if (nodeMatrix[i,j].Type == "Treasure")
+                        {
+                            if (!nodeMatrix[i,j].IsExplorable())
+                            {
+                                throw new Exception("Treasure must be accessible");
+                            }
+                        }
+                        else if (nodeMatrix[i,j].Type == "Krusty Krab")
+                        {
+                            if (!nodeMatrix[i,j].IsExplorable())
+                            {
+                                throw new Exception("Krusty Krab cannot be isolated");
+                            }
+                        }
                     }
                 }
             }

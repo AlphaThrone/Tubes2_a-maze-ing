@@ -11,8 +11,8 @@ namespace Amazeing
     {
         // === ATTRIBUTES ======================================================================
         private Node[] routeGraph;
-        private Node[] selectedRouteGraph;
-        private int nSelectedRoute;
+        private Node[] selectedRouteGraph; //
+        private int nSelectedRoute; //
         private string[] routeSteps;
         private string routeStr;
         private int nSteps;
@@ -21,8 +21,8 @@ namespace Amazeing
         public Route()
         {
             this.routeGraph = new Node[400];
-            this.selectedRouteGraph = new Node[400];
-            this.nSelectedRoute = 0;
+            this.selectedRouteGraph = new Node[400]; //
+            this.nSelectedRoute = 0; //
             this.routeSteps = new string[400];
             this.routeStr = "-";
             this.nSteps = 0;
