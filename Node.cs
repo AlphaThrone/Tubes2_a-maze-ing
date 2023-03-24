@@ -14,6 +14,7 @@ namespace NodeFile
         private Node? topNode;
         private Node? rightNode;
         private Node? bottomNode;
+        private Node? previousNode;
         private static int numOfNode = 0;
 
         // === CONSTRUCTOR =====================================================================
@@ -88,6 +89,13 @@ namespace NodeFile
         {
             return this.bottomNode;
         }
+        public void setPreviousNode(Node previousNode)
+        {
+            this.previousNode = previousNode;
+        }
+        public Node? getPreviousNode(){
+            return this.previousNode;
+        }
 
         public string getType()
         {
@@ -110,11 +118,11 @@ namespace NodeFile
         // === METHODS =========================================================================
         public bool isAdjacent(Node other)
         {
-            if (this.posX + 1 == this.posX || this.posX - 1 == this.posX)
+            if (this.posX + 1 == other.posX || this.posX - 1 == other.posX)
             {
                 return true;
             }
-            if (this.posY + 1 == this.posY || this.posY - 1 == this.posY)
+            if (this.posY + 1 == other.posY || this.posY - 1 == other.posY)
             {
                 return true;
             }
