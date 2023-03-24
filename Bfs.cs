@@ -17,19 +17,19 @@ namespace Amazeing
         // === METHODS =========================================================================
         public override Solution Use(Solution solution)
         {
-            bool clearing = false;
             this.nodeQueue = new Queue<Node>();
             Solution newSolution = solution;
             Node currentNode = newSolution.Maze.StartingNode;
-            Route tempRoute = new Route();
             List<Node> treasureFound = new List<Node>();
+            Console.WriteLine("In AllTreasure");
             List<Node> allTreasures = getAllTreasure(solution);
+            Console.WriteLine("Out AllTreasure");
 
             this.nodeQueue.Enqueue(solution.Maze.StartingNode);
             while (true)
             {
                 currentNode = this.nodeQueue.Dequeue();
-                tempRoute.AddNodeToRoute(currentNode);
+                newSolution.Route.AddNodeToRoute(currentNode);
                 if (currentNode.Status != "Visited")
                 {
                     newSolution.VisitedNode++;
@@ -40,29 +40,33 @@ namespace Amazeing
                     newSolution.TreasureFound++;
                     treasureFound.Add(currentNode);
 
-                    Console.WriteLine("TREASURE FOUND: " + newSolution.TreasureFound + " id: " + currentNode.X + "," + currentNode.Y);
+                    // Console.WriteLine("TREASURE FOUND: " + newSolution.TreasureFound + " id: " + currentNode.X + "," + currentNode.Y);
 
-                    tempRoute = searchPath(currentNode, newSolution);
-                    for (int i = 0; i < tempRoute.NumRouteGraph(); i++)
-                    {
-                        newSolution.Route.AddNodeToRoute(tempRoute.RouteGraph[i]);
-                    }
+                    searchPath(currentNode, newSolution);
                     resetPreviousNode(newSolution);
                     resetStatus(newSolution);
                     nodeQueue.Clear();
 
+                    Console.WriteLine("In");
                     if (isAllTreasuresFound(treasureFound, allTreasures))
                     {
-                        for (int i = 0; i < newSolution.Route.NumRouteGraph(); i++)
+                        for (int i = 0; i < newSolution.Route.NSelectedRoute; i++)
                         {
-                            newSolution.Route.RouteGraph[i].Status = "Visited";
+                            if (newSolution.Route.SelectedRouteGraph[i] != null)
+                            {
+                                newSolution.Route.SelectedRouteGraph[i].Status = "Visited";
+                                Console.WriteLine("Out");
+                            }                            
                         }
                         break;
                     }
+                    
                 }
                 search(newSolution, currentNode);
                 currentNode.Status = "Visited";
             }
+
+            newSolution.Route.InitializeStep();
 
             return newSolution;
         }
@@ -82,7 +86,7 @@ namespace Amazeing
             }
             if (currentNode.Right != null && currentNode.Right.Status == "Not visited" && !nodeQueue.Contains(currentNode.Right))
             {
-                currentNode.Right.Previous = currentNode;
+                currentNode.Right.Previous =currentNode;
                 this.nodeQueue.Enqueue(currentNode.Right);
 
             }
@@ -118,11 +122,11 @@ namespace Amazeing
         public List<Node> getAllTreasure(Solution solution)
         {
             List<Node> allTreasures = new List<Node>();
-            for (int i = 0; i < solution.Maze.Width; i++)
+            for (int i = 0; i < solution.Maze.Depth; i++)
             {
-                for (int j = 0; j < solution.Maze.Depth; j++)
+                for (int j = 0; j < solution.Maze.Width; j++)
                 {
-                    if (solution.Maze.NodeMatrix[i, j] != null)
+                    if(solution.Maze.NodeMatrix[i, j] != null)
                     {
                         if (solution.Maze.NodeMatrix[i, j].Type == "Treasure")
                         {
@@ -148,11 +152,11 @@ namespace Amazeing
 
         public void resetStatus(Solution solution)
         {
-            for (int i = 0; i < solution.Maze.Width; i++)
+            for (int i = 0; i < solution.Maze.Depth; i++)
             {
-                for (int j = 0; j < solution.Maze.Depth; j++)
+                for (int j = 0; j < solution.Maze.Width; j++)
                 {
-                    if (solution.Maze.NodeMatrix[i,j] != null)
+                    if (solution.Maze.NodeMatrix[i, j] != null)
                     {
                         solution.Maze.NodeMatrix[i, j].Status = "Not visited";
                     }
@@ -162,22 +166,24 @@ namespace Amazeing
 
         public void resetPreviousNode(Solution solution)
         {
-            for (int i = 0; i < solution.Maze.Width; i++)
+            for (int i = 0; i < solution.Maze.Depth; i++)
             {
-                for (int j = 0; j < solution.Maze.Depth; j++)
+                for (int j = 0; j < solution.Maze.Width; j++)
                 {
                     if (solution.Maze.NodeMatrix[i, j] != null)
                     {
-                        solution.Maze.NodeMatrix[i, j].Previous = null;
-                    }
+                        if (solution.Maze.NodeMatrix[i, j].Previous != null)
+                        {
+                            solution.Maze.NodeMatrix[i, j].Previous = null;
+                        }
+                    }                    
                 }
             }
         }
 
-        public Route searchPath(Node currentNode, Solution solution)
+        public void searchPath(Node currentNode, Solution solution)
         {
             Stack<Node> pathway = new Stack<Node>();
-            Route tempRoute = new Route();
             Node tempNode = currentNode;
             pathway.Push(tempNode);
             while (true)
@@ -195,9 +201,8 @@ namespace Amazeing
 
             while (pathway.Count() != 0)
             {
-                tempRoute.AddNodeToRoute(pathway.Pop());
+                solution.Route.AddNodeToSelectedRoute(pathway.Pop());
             }
-            return tempRoute;
         }
     }
 }

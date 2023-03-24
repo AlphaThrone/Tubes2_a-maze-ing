@@ -136,7 +136,6 @@ namespace Amazeing
 
             // 3. Initialize steps
             newSolution.Route.InitializeStep();
-            Console.WriteLine(newSolution.Route.RouteStr);
 
             return newSolution;
         }
