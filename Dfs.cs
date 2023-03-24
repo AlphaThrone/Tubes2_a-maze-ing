@@ -66,7 +66,7 @@ namespace Amazeing
                 Node currentNode = GetTop();
                 // Console.WriteLine(GetTop().Id + " ( " + GetTop().X + "," + GetTop().Y + " )");
                 newSolution.Route.AddNodeToRoute(GetTop());
-                solution.Route.AddNodeToSelectedRoute(GetTop());
+                newSolution.Route.AddNodeToSelectedRoute(GetTop());
 
                 // 2.2. Check if current node is visited
                 if (currentNode.Status != "Visited")
@@ -125,7 +125,7 @@ namespace Amazeing
                             Pop();
                             newSolution.Route.AddNodeToSelectedRoute(GetTop());
                         }
-                        newSolution.Route.AddNodeToRoute(GetTop());
+                        // newSolution.Route.AddNodeToRoute(GetTop());
                     }
                     
                 }

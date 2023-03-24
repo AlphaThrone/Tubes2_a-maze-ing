@@ -16,6 +16,7 @@ namespace Amazeing
         private Controller controller;
         private System.Media.SoundPlayer soundPlayer;
         private bool isPlaySound;
+        private int visualizerSpeed;
 
         public Window()
         {
@@ -25,6 +26,8 @@ namespace Amazeing
             isPlaySound = true;
             soundPlayer.SoundLocation = "../../Resources/bg-soundtrack.wav";
             soundPlayer.PlayLooping();
+            visualizerSpeed = 500;
+            SpeedInput.Text = visualizerSpeed.ToString();
         }
 
         private void importBtn_Click(object sender, EventArgs e)
@@ -155,7 +158,7 @@ namespace Amazeing
 
                 for(int i = 0; i < 100; i++)
                 {
-                    await Task.Delay(500);
+                    await Task.Delay(visualizerSpeed);
 
                     if (controller.Solutions[controller.SelectedAlgorithm].Route.RouteGraph[i] == null)
                     {
@@ -169,10 +172,10 @@ namespace Amazeing
                     }
                 }
 
-                for (int i = controller.Solutions[controller.SelectedAlgorithm].Route.NSelectedRoute - 1; i > -1; i--)
+                for (int i = 0; i < controller.Solutions[controller.SelectedAlgorithm].Route.NSelectedRoute; i++)
                 {
                     Console.WriteLine(i);
-                    await Task.Delay(250);
+                    await Task.Delay(visualizerSpeed/2);
 
                     if (controller.Solutions[controller.SelectedAlgorithm].Route.SelectedRouteGraph[i] != null)
                     { 
@@ -237,6 +240,22 @@ namespace Amazeing
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void SpeedInput_TextChanged(object sender, EventArgs e)
+        {
+            if(SpeedInput.Text != "" && SpeedInput.Text.Length < 5)
+            {
+                visualizerSpeed = Convert.ToInt32(SpeedInput.Text);
+                SpeedSlider.Value = visualizerSpeed / 100;
+            }
+        }
+
+        private void SpeedSlider_Scroll(object sender, EventArgs e)
+        {
+            visualizerSpeed = SpeedSlider.Value * 100;
+            SpeedInput.Text = visualizerSpeed.ToString();
 
         }
     }

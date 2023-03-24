@@ -46,8 +46,11 @@
             this.RouteLabel = new System.Windows.Forms.Button();
             this.RouteVal = new System.Windows.Forms.Label();
             this.SoundBtn = new System.Windows.Forms.Button();
+            this.SpeedSlider = new System.Windows.Forms.TrackBar();
+            this.SpeedInput = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AlgoTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MazeGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpeedSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // importBtn
@@ -77,12 +80,12 @@
             this.MazeFile.Font = new System.Drawing.Font("Montserrat Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MazeFile.ForeColor = System.Drawing.Color.Yellow;
             this.MazeFile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MazeFile.Location = new System.Drawing.Point(639, 574);
+            this.MazeFile.Location = new System.Drawing.Point(809, 573);
             this.MazeFile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.MazeFile.MaximumSize = new System.Drawing.Size(300, 30);
-            this.MazeFile.MinimumSize = new System.Drawing.Size(300, 30);
+            this.MazeFile.MaximumSize = new System.Drawing.Size(150, 30);
+            this.MazeFile.MinimumSize = new System.Drawing.Size(150, 30);
             this.MazeFile.Name = "MazeFile";
-            this.MazeFile.Size = new System.Drawing.Size(300, 30);
+            this.MazeFile.Size = new System.Drawing.Size(150, 30);
             this.MazeFile.TabIndex = 1;
             this.MazeFile.Text = "No file";
             this.MazeFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -204,7 +207,7 @@
             this.ExecTimeLabel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ExecTimeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExecTimeLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.ExecTimeLabel.Location = new System.Drawing.Point(407, 562);
+            this.ExecTimeLabel.Location = new System.Drawing.Point(368, 562);
             this.ExecTimeLabel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ExecTimeLabel.MaximumSize = new System.Drawing.Size(120, 55);
             this.ExecTimeLabel.MinimumSize = new System.Drawing.Size(120, 55);
@@ -220,7 +223,7 @@
             this.ExecTimeVal.Font = new System.Drawing.Font("Montserrat Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExecTimeVal.ForeColor = System.Drawing.Color.Yellow;
             this.ExecTimeVal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ExecTimeVal.Location = new System.Drawing.Point(549, 574);
+            this.ExecTimeVal.Location = new System.Drawing.Point(510, 574);
             this.ExecTimeVal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ExecTimeVal.MaximumSize = new System.Drawing.Size(100, 30);
             this.ExecTimeVal.MinimumSize = new System.Drawing.Size(100, 30);
@@ -261,10 +264,10 @@
             this.NodesVal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NodesVal.Location = new System.Drawing.Point(135, 575);
             this.NodesVal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.NodesVal.MaximumSize = new System.Drawing.Size(70, 30);
-            this.NodesVal.MinimumSize = new System.Drawing.Size(70, 30);
+            this.NodesVal.MaximumSize = new System.Drawing.Size(60, 30);
+            this.NodesVal.MinimumSize = new System.Drawing.Size(60, 30);
             this.NodesVal.Name = "NodesVal";
-            this.NodesVal.Size = new System.Drawing.Size(70, 30);
+            this.NodesVal.Size = new System.Drawing.Size(60, 30);
             this.NodesVal.TabIndex = 12;
             this.NodesVal.Text = "0";
             this.NodesVal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -282,7 +285,7 @@
             this.StepsLabel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.StepsLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StepsLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.StepsLabel.Location = new System.Drawing.Point(222, 575);
+            this.StepsLabel.Location = new System.Drawing.Point(203, 575);
             this.StepsLabel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.StepsLabel.MaximumSize = new System.Drawing.Size(80, 34);
             this.StepsLabel.MinimumSize = new System.Drawing.Size(80, 28);
@@ -299,12 +302,12 @@
             this.StepsVal.Font = new System.Drawing.Font("Montserrat Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StepsVal.ForeColor = System.Drawing.Color.Yellow;
             this.StepsVal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.StepsVal.Location = new System.Drawing.Point(319, 575);
+            this.StepsVal.Location = new System.Drawing.Point(300, 575);
             this.StepsVal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.StepsVal.MaximumSize = new System.Drawing.Size(70, 30);
-            this.StepsVal.MinimumSize = new System.Drawing.Size(70, 30);
+            this.StepsVal.MaximumSize = new System.Drawing.Size(60, 30);
+            this.StepsVal.MinimumSize = new System.Drawing.Size(60, 30);
             this.StepsVal.Name = "StepsVal";
-            this.StepsVal.Size = new System.Drawing.Size(70, 30);
+            this.StepsVal.Size = new System.Drawing.Size(60, 30);
             this.StepsVal.TabIndex = 14;
             this.StepsVal.Text = "0";
             this.StepsVal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -366,6 +369,34 @@
             this.SoundBtn.UseVisualStyleBackColor = false;
             this.SoundBtn.Click += new System.EventHandler(this.SoundBtn_Click);
             // 
+            // SpeedSlider
+            // 
+            this.SpeedSlider.AutoSize = false;
+            this.SpeedSlider.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.SpeedSlider.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SpeedSlider.Location = new System.Drawing.Point(616, 586);
+            this.SpeedSlider.MaximumSize = new System.Drawing.Size(169, 45);
+            this.SpeedSlider.MinimumSize = new System.Drawing.Size(169, 45);
+            this.SpeedSlider.Name = "SpeedSlider";
+            this.SpeedSlider.Size = new System.Drawing.Size(169, 45);
+            this.SpeedSlider.TabIndex = 18;
+            this.SpeedSlider.Scroll += new System.EventHandler(this.SpeedSlider_Scroll);
+            // 
+            // SpeedInput
+            // 
+            this.SpeedInput.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.SpeedInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SpeedInput.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SpeedInput.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.SpeedInput.Location = new System.Drawing.Point(616, 550);
+            this.SpeedInput.MaximumSize = new System.Drawing.Size(169, 30);
+            this.SpeedInput.MinimumSize = new System.Drawing.Size(169, 30);
+            this.SpeedInput.Name = "SpeedInput";
+            this.SpeedInput.Size = new System.Drawing.Size(169, 30);
+            this.SpeedInput.TabIndex = 19;
+            this.SpeedInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SpeedInput.TextChanged += new System.EventHandler(this.SpeedInput_TextChanged);
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -373,6 +404,8 @@
             this.BackgroundImage = global::Amazeing.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1148, 647);
+            this.Controls.Add(this.SpeedInput);
+            this.Controls.Add(this.SpeedSlider);
             this.Controls.Add(this.SoundBtn);
             this.Controls.Add(this.RouteVal);
             this.Controls.Add(this.RouteLabel);
@@ -400,7 +433,9 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.AlgoTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MazeGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpeedSlider)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -423,6 +458,8 @@
         private System.Windows.Forms.Button RouteLabel;
         private System.Windows.Forms.Label RouteVal;
         private System.Windows.Forms.Button SoundBtn;
+        private System.Windows.Forms.TrackBar SpeedSlider;
+        private System.Windows.Forms.TextBox SpeedInput;
     }
 }
 
