@@ -24,7 +24,7 @@ namespace Amazeing
             controller = new Controller();
             soundPlayer = new System.Media.SoundPlayer();
             isPlaySound = true;
-            soundPlayer.SoundLocation = "../../Resources/bg-soundtrack.wav";
+            soundPlayer.SoundLocation = "../src/Resources/bg-soundtrack.wav";
             soundPlayer.PlayLooping();
             visualizerSpeed = 500;
             SpeedInput.Text = visualizerSpeed.ToString();
