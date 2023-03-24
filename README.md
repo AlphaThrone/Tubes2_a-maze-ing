@@ -8,7 +8,7 @@ Pengaplikasian Algoritma BFS dan DFS dalam Menyelesaikan Persoalan Maze Treasure
 3. [Technologies Used](#technologies-used)
 4. [Instalation and Requirements](#instalation-and-requirements)
 5. [How to Run](#how-to-run)
-6. [Project Status(#project-status)
+6. [Project Status](#project-status)
 7. [Acknowledgements](#acknowledgements)
 8. [Group Photo](#group-photo)
 
