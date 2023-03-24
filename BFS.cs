@@ -43,7 +43,7 @@ namespace BFSFile
                     tempRoute=searchPath(currentNode, newSolution);
                     for (int i = 0; i < tempRoute.getNumNodeRoute(); i++)
                     {
-                        solution.getRoute().addNodeToRoute(tempRoute.getNodeRoute(i));
+                        newSolution.getRoute().addNodeToRoute(tempRoute.getNodeRoute(i));
                     }
                     resetPreviousNode(newSolution);
                     resetStatus(newSolution);
@@ -51,23 +51,18 @@ namespace BFSFile
                     
                     if (isAllTreasuresFound(treasureFound, allTreasures))
                     {
-                        for (int i = 0; i < solution.getRoute().getNumNodeRoute(); i++)
+                        for (int i = 0; i < newSolution.getRoute().getNumNodeRoute(); i++)
                         {
-                            solution.getRoute().getNodeRoute(i).setStatus("Visited");
+                            newSolution.getRoute().getNodeRoute(i).setStatus("Visited");
                         }
                         break;
                     }
                 }
-
                 search(newSolution, currentNode);
-
                 currentNode.setStatus("Visited");
-                
-
-
             }
             
-            return solution;
+            return newSolution;
         }
 
         public void search(Solution solution, Node currentNode){
