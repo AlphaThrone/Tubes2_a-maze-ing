@@ -13,6 +13,7 @@ namespace Amazeing
         // === ATTRIBUTES ======================================================================
         private string sourceFile;
         private char[,] matrix;
+        private Node[,] nodeMatrix;
         private int depth;
         private int width;
         private Node startingNode;
@@ -45,6 +46,12 @@ namespace Amazeing
         {
             get { return this.matrix; }
             set { this.matrix = value; }
+        }
+
+        public Node[,] NodeMatrix
+        {
+            get { return this.nodeMatrix; }
+            set { this.nodeMatrix = value; }
         }
 
         public int Depth
@@ -147,7 +154,7 @@ namespace Amazeing
 
         public void Build()
         {
-            Node[,] nodeMatrix = new Node[this.depth, this.width];
+            this.nodeMatrix = new Node[this.depth, this.width];
 
             // 1. Construct all nodes
             for(int i = 0; i < this.depth; i++)

@@ -60,6 +60,20 @@ namespace Amazeing
         }
 
         // === METHODS =========================================================================
+        public int NumRouteGraph()
+        {
+            int count = 0;
+            for (int i = 0; i < 400; i++)
+            {
+                if (routeGraph[i] == null)
+                {
+                    break;
+                }
+                count++;
+            }
+            return count;
+        }
+        
         public void AddNodeToRoute(Node newNode)
         {
             for (int i = 0; i < 400; i++)

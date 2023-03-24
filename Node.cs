@@ -20,6 +20,7 @@ namespace Amazeing
         private Node topNode;
         private Node rightNode;
         private Node bottomNode;
+        private Node previousNode;
         private static int numOfNode = 0;
 
         // === CONSTRUCTOR =====================================================================
@@ -100,6 +101,12 @@ namespace Amazeing
         {
             get { return this.bottomNode; }
             set { this.bottomNode = value; }
+        }
+
+        public Node Previous
+        {
+            get { return this.previousNode; }
+            set { this.previousNode = value; }
         }
 
         // === METHODS =========================================================================
