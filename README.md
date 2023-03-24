@@ -10,7 +10,6 @@ Pengaplikasian Algoritma BFS dan DFS dalam Menyelesaikan Persoalan Maze Treasure
 5. [How to Run](#how-to-run)
 6. [Project Status](#project-status)
 7. [Acknowledgements](#acknowledgements)
-8. [Group Photo](#group-photo)
 
 ## Author
 | NIM | Nama |
@@ -42,5 +41,3 @@ Project status:
 ## Acknowledgements
 - Program ini dibuat untuk memenuhi Tugas Besar 2 IF2211 Strategi Algoritma
 - Terima kasih kepada Dosen serta Asisten yang telah mengampu Mata Kuliah IF2211 Strategi Algoritma
-
-## Group Photo
