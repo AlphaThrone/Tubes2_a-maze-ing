@@ -29,7 +29,7 @@ Program ini ditulis dalam bahasa pemrograman C# serta menggunakan framework .NET
 - [.NET 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 
 ## How to Run
-- Open folder bin and double-click Amazeing.exe
+- Buka folder bin dan double-click Amazeing.exe
 
 ## Project Status
 Project status:
