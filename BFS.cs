@@ -12,7 +12,6 @@ namespace BFSFile
     {
         // === ATTRIBUTES ======================================================================
         private Queue<Node> nodeQueue;
-        private int treasureAround;
         // === CONSTRUCTOR =====================================================================
         public BFS() : base("BFS") { }
 
@@ -48,11 +47,9 @@ namespace BFSFile
                     {
                         solution.getRoute().addNodeToRoute(tempRoute.getNodeRoute(i));
                     }
+                    resetPreviousNode(newSolution);
                     resetStatus(newSolution);
-                    Console.WriteLine("treasure around: "+treasureAround);
-                    
                     nodeQueue.Clear();
-                    // nodeQueue.Enqueue(currentNode);
                     
                     if (isAllTreasuresFound(treasureFound, allTreasures))
                     {
@@ -167,7 +164,7 @@ namespace BFSFile
             Node tempNode=currentNode;
             pathway.Push(tempNode);
             while(true){
-                if(tempNode.getPreviousNode()==null || tempNode.getPreviousNode().getType()=="Treasure"){
+                if(tempNode.getPreviousNode()==null ){
                     break;
                 } else {
                     Console.Write("pathNode: ");
