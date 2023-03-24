@@ -26,14 +26,10 @@ Penelusuran harta karun dimulai dari titik awal yaitu K dan diakhiri dengan goal
 Program ini ditulis dalam bahasa pemrograman C# serta menggunakan framework .NET 7.0
 
 ## Instalation and Requirements
--
--
--
+- [.NET 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 
 ## How to Run
--
--
--
+- Open folder bin and double-click Amazeing.exe
 
 ## Project Status
 Project status:
