@@ -271,7 +271,6 @@ namespace Amazeing
         {
             visualizerSpeed = SpeedSlider.Value * 100;
             SpeedInput.Text = visualizerSpeed.ToString();
-
         }
     }
 }

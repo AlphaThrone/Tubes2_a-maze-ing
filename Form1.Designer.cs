@@ -372,7 +372,7 @@
             // SpeedSlider
             // 
             this.SpeedSlider.AutoSize = false;
-            this.SpeedSlider.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.SpeedSlider.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.SpeedSlider.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SpeedSlider.Location = new System.Drawing.Point(616, 586);
             this.SpeedSlider.MaximumSize = new System.Drawing.Size(169, 45);
@@ -384,7 +384,7 @@
             // 
             // SpeedInput
             // 
-            this.SpeedInput.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.SpeedInput.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.SpeedInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SpeedInput.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SpeedInput.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -392,7 +392,7 @@
             this.SpeedInput.MaximumSize = new System.Drawing.Size(169, 30);
             this.SpeedInput.MinimumSize = new System.Drawing.Size(169, 30);
             this.SpeedInput.Name = "SpeedInput";
-            this.SpeedInput.Size = new System.Drawing.Size(169, 30);
+            this.SpeedInput.Size = new System.Drawing.Size(169, 20);
             this.SpeedInput.TabIndex = 19;
             this.SpeedInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SpeedInput.TextChanged += new System.EventHandler(this.SpeedInput_TextChanged);
