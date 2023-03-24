@@ -16,7 +16,7 @@ Pengaplikasian Algoritma BFS dan DFS dalam Menyelesaikan Persoalan Maze Treasure
 |:---:|:----:|
 |13521006| Azmi Hasna Zahrani|
 |13521012| Haikal Ardzi Shofiyyurrohman|
-|13521019| Ditra Rizqa Amadia |
+|13521019| Ditra Rizqa Amadia|
 
 ## General Informations
 Program ini merupakan program pencari harta karun dalam labirin dengan mengimplementasikan algoritma graf traversal, yaitu Breadth First Search (BFS) dan Depth First Search (DFS). Program ini ditulis dalam konsep pemrograman Object-Oriented serta menggunakan GUI sederhana sebagai interfacenya.
