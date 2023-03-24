@@ -430,7 +430,7 @@
             this.MaximumSize = new System.Drawing.Size(1164, 686);
             this.MinimumSize = new System.Drawing.Size(1164, 686);
             this.Name = "Window";
-            this.Text = "Form1";
+            this.Text = "Amazeing Treasure Hunt";
             ((System.ComponentModel.ISupportInitialize)(this.AlgoTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MazeGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedSlider)).EndInit();
